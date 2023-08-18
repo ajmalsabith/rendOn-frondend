@@ -1,0 +1,46 @@
+
+.main{
+    background-color: rgb(255, 255, 255);
+    min-width:100%;
+    min-height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.sec{
+   
+    border-radius: 23px;
+    border:2px solid rgb(0, 0, 0);
+    padding:35px;
+}
+
+
+  .child{
+    background-color: rgb(7, 255, 131);
+    color: rgb(255, 255, 255);
+    margin-top:20px;
+    border-radius :15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .child:hover{
+    background-color: rgb(22, 82, 32);
+  }
+ label{
+    font-weight: bolder;
+ }
+  .in{
+    margin-left :6px;
+  }
+  p{
+    font-weight: bold;
+  }
+  .in {
+    display: none;
+  }
+

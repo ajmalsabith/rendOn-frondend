@@ -1,0 +1,12 @@
+<div class="conta">
+    <div class="form-model">
+<form [formGroup]="form" (submit)="submit()" >
+       <h2 class="text-center">OTP</h2>
+       <div class="col">
+          <input class="vla" type="number" formControlName="otp" placeholder="enter your otp"> <br>
+       </div>
+       <span style="color: red;">{{message}}</span>
+      <button class="btn btn-success text-white">Submit</button>
+    </form>
+    </div>
+ </div>

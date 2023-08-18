@@ -1,0 +1,67 @@
+.maindiv{
+  display: flex;
+  margin: 0;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(255, 255, 255);
+}
+
+
+.image{
+  display:flex;
+  width: 30%;
+}
+
+
+
+.form-model {
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 30px;
+    border: 2px solid #000000;
+  }
+  
+  .conta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .logo-image {
+    max-width: 100%;
+    height:40px;
+    width:200px;
+    display: block;
+    margin: 10px;
+    margin-bottom:30px;
+  }
+  
+  .vla {
+    margin-bottom: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-radius: 15px;
+  }
+  
+  .btn {
+    min-width: 100%;
+  }
+  
+  
+  .hover-link {
+    text-decoration: none; /* Remove the default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.hover-link:hover {
+    color: rgb(120, 42, 0); /* Change the color when hovering */
+}
+
+
+@media (max-width:992px) {
+  .image{
+      display: none;
+
+  }
+}

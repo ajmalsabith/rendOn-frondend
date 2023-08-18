@@ -1,0 +1,34 @@
+<div class="maindiv">
+  <img src="https://img.freepik.com/free-vector/driving-car-concept-illustration_114360-10682.jpg?t=st=1691987439~exp=1691988039~hmac=8f43eafd2a1bee5e4f4975b8c324105cea2cab9b925ede508e76c2614ec7b77d" alt="..." class="image">
+
+<div class="conta">
+  <div class="form-model">
+    <img src="assets/logo-png-removebg-preview (2).png" alt="Project Logo" class="logo-image">
+    <form [formGroup]="reativeform" (ngSubmit)="submit()">
+      <div class="col">
+        <input class="vla" formControlName="name" type="text" placeholder="Enter name"> <br>
+        <span style="color: red;" *ngIf="name && name.invalid && name.touched">please correct your name</span><br>
+        
+        <input class="vla" formControlName="phone" id="number" type="number" placeholder="enter phone number"><br>
+        <span style="color: red;" *ngIf="phone && phone.invalid && phone.touched">please correct your phone</span><br>
+
+        <input class="vla" formControlName="emailuser" type="email" placeholder="Enter email"><br>
+        <span style="color: red;" *ngIf="emailuser && emailuser.invalid && emailuser.touched">please correct your email</span><br>
+
+        <input class="vla" formControlName="password" type="password" placeholder="Enter password"><br>
+        <span style="color: red;" *ngIf="password && password.invalid && password.touched">please correct your password</span><br>
+        <span style="color:red;">{{message}}</span>
+      </div>
+      <button class="btn btn-dark text-white" [disabled]="reativeform.invalid">Register</button>
+    </form>
+
+
+    <hr>
+    <a routerLink="/login" style="color: black; font-size: 11px; margin-top: 10px;"
+      class="hover-link d-flex align-items-center justify-content-center">
+      Do you have an account?
+    </a>
+  </div>
+</div>
+
+</div>

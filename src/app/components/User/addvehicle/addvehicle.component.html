@@ -1,0 +1,37 @@
+
+    <form [formGroup]="reativeform" (ngSubmit)="submit()">
+        <h4>add vehicle</h4>
+        <div class="row" style="border: 2px solid black;">
+            <div class="col-md-6 mb-3 mt-2">
+                <input type="text" class="form-control mt-2" formControlName="name" placeholder="Your vehicle name" id="vehicleName" >
+                <span style="color: red;" *ngIf="name && name.invalid && name.touched">please enter your name</span><br>
+
+                <input type="number" class="form-control mt-2"formControlName="rentamount" placeholder="Enter your amount" id="vehicleAmount">
+                <span style="color: red;" *ngIf="rentamount && rentamount.invalid && rentamount.touched">please enter your amount</span><br>
+
+                <input type="text" class="form-control mt-2" formControlName="type" placeholder="Enter your vehicle type" id="vehicleType">
+                <span style="color: red;" *ngIf="type && type.invalid && type.touched">please enter your vehicle type</span><br>
+
+                <input type="text" class="form-control mt-2" formControlName="place" placeholder="Enter your place" id="placeInput">
+                <span style="color: red;" *ngIf="place && place.invalid && place.touched">please enter your place</span><br>
+
+            </div>
+            <div class="col-md-6 mb-3 mt-2">
+                <div class="mb-3">
+                    <label class="form-label mt-3">Vehicle RC Book Photo</label><hr>
+                    <input type="file" formControlName="proof" class="form-control" (change)="uploadImage1($event.target)">
+                <span style="color: red;" *ngIf="proof && proof.invalid && proof.touched">please add proof</span><br>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label mt-3">Your Vehicle Photo</label><hr>
+                    <input type="file" formControlName="image" class="form-control" (change)="uploadImage2($event.target)">
+                <span style="color: red;" *ngIf="image && image.invalid && image.touched">please add image </span><br>
+
+                </div>
+                
+            </div>
+            <button type="submit" [disabled]="reativeform.invalid" class="btn btn-primary">Submit</button>
+
+        </div>
+    </form>

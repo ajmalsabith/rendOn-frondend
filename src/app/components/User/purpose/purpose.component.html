@@ -1,0 +1,25 @@
+
+<div class="main">
+    <div class="sec">
+      <p>what is the purpose of using this website</p>
+      <form [formGroup]="form">
+        <div class="child">
+          <input class="in" formControlName="purpose" type="radio" id="customer" value="customer" (change)="radioChanged($event)">
+          <label for="customer">Are you a customer?</label><br><br>
+        </div>
+        <div class="child">
+          <input class="in" formControlName="purpose" type="radio" id="business" value="business" (change)="radioChanged($event)">
+          <label for="business">Are you a businessman?</label><br><br>
+        </div>
+        <div class="child">
+          <input class="in" formControlName="purpose" type="radio" id="service" value="service" (change)="radioChanged($event)">
+          <label for="service">Are you a servicer?</label><br><br>
+        </div>
+        {{message}}
+      </form>
+      
+   
+      
+    </div>
+
+</div>

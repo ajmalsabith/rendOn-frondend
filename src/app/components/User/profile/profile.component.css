@@ -1,0 +1,31 @@
+
+
+.typec{
+    border-radius:50px;
+    background-color: aqua;
+    overflow: hidden;
+}
+.boot{
+    font-weight: bold;
+}
+@media (min-width:991px){
+    .firstone{
+        display: none;
+    }
+    
+
+}
+@media (max-width:991px){
+    .lastone{
+        display: none;
+    }
+    .firstone{
+        float: right;
+    }
+    
+
+}
+
+.items{
+    color: rgb(129, 120, 110);
+}

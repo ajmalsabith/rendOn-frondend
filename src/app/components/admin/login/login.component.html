@@ -1,0 +1,18 @@
+<div class="maindiv">
+    <img src="https://img.freepik.com/free-vector/driving-car-concept-illustration_114360-10682.jpg?t=st=1691987439~exp=1691988039~hmac=8f43eafd2a1bee5e4f4975b8c324105cea2cab9b925ede508e76c2614ec7b77d" alt="..." class="image">
+    <div class="conta">
+      <form [formGroup]="reativeform" (ngSubmit)="submit()">
+        <div class="form-model">
+          <img src="assets/logo-png-removebg-preview (2).png" alt="Project Logo" class="logo-image">
+          <input class="vla" type="text" placeholder="Enter email" formControlName="email"><br>
+          <span style="color: red;" *ngIf="email && email.invalid && email.touched">please correct your email</span><br>
+          <input class="vla" type="password" placeholder="Enter password" formControlName="password"><br>
+          <span style="color: red;" *ngIf="password && password.invalid && password.touched">password must be 8 letters</span><br>
+          <span style="color: red;" class="d-flex align-items-center justify-content-center">{{message}}</span>
+          <button class="btn btn-dark text-white" [disabled]="reativeform.invalid">login</button>
+          <a routerLink="/forgetpass"><span class="d-flex align-items-center justify-content-center" style="color: black; font-size: 11px; margin-top: 5px;">forget password ?</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
