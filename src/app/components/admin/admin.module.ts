@@ -4,13 +4,23 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule } from '@angular/common/http';
 import {DashboardComponent} from './dashboard/dashboard.component'
-import {LoginComponent} from './login/login.component'
+import {LoginComponent} from './login/login.component';
+import { CustomerComponent } from './customer/customer.component';
+import { BusinessComponent } from './business/business.component';
+import { ServiceComponent } from './service/service.component';
+import { AdminnavComponent } from './adminnav/adminnav.component';
+import { VehicleslistComponent } from './vehicleslist/vehicleslist.component'
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CustomerComponent,
+    BusinessComponent,
+    ServiceComponent,
+    AdminnavComponent,
+    VehicleslistComponent
 
   ],
   imports: [

@@ -8,6 +8,9 @@
 .boot{
     font-weight: bold;
 }
+.imgfit{
+    object-fit:cover;
+}
 @media (min-width:991px){
     .firstone{
         display: none;

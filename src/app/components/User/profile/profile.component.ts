@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,10 +17,13 @@ export class ProfileComponent implements OnInit{
   editvehicle:boolean=false
   datashow:boolean=true
 
-  constructor(private userservice:UserserviceService,private toaster:ToastrService){}
+  constructor(private userservice:UserserviceService,private toaster:ToastrService,private router:Router){}
   ngOnInit(): void {
+
     this.userservice.getprofile().subscribe((res:any)=>{
-      this.userdata=res.userdata
+     
+      
+      this.userdata=res.userdata      
       this.vehicledata=res.vehicledata
       
     },(err)=>{
@@ -43,6 +47,17 @@ export class ProfileComponent implements OnInit{
     this.datashow=Value
     this.editvehicle=false
     this.addvehcle=false
+  }
+
+  
+
+  logout(){
+    this.userservice.logoutpost().subscribe((res:any)=>{
+       this.router.navigate(['login'])
+       this.toaster.success(res.message)
+    },(err)=>{
+      this.toaster.error('somthing wrong...!')
+    })
   }
 
 }

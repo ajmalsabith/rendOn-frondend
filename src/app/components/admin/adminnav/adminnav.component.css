@@ -1,0 +1,20 @@
+.sty{
+    background-color: rgb(208, 233, 174);
+}
+
+.lif{
+    margin-left:100px;
+
+}
+
+.m4{
+    padding-left:10px;
+}
+
+a{
+    font-weight: bolder;
+    margin-left: 5px;
+}
+a:hover{
+    color: rgb(255, 255, 255);
+}

@@ -21,6 +21,7 @@ export class AddvehicleComponent implements OnInit {
 
   constructor(private userService:UserserviceService,private router:Router,private toaster:ToastrService){}
   ngOnInit(): void {
+    
     this.reativeform=new FormGroup({
       name:new FormControl('',[Validators.required]),
       rentamount:new FormControl('',[Validators.required]),
@@ -38,6 +39,9 @@ export class AddvehicleComponent implements OnInit {
   }
 
   submit(){
+
+    console.log(this.reativeform);
+    
 
    
     const product=this.reativeform.getRawValue()
@@ -62,7 +66,7 @@ export class AddvehicleComponent implements OnInit {
 
 
     },(err)=>{
-      this.toaster.error(err.error.massage)
+      this.toaster.error('nothheee')
       this.message=err.error.massage
     })
     

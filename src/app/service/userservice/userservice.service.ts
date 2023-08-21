@@ -38,4 +38,20 @@ export class UserserviceService {
   getprofile(){
     return this.http.get(`${this.url}/api/profile`,{withCredentials:true})
   }
+
+
+  loadeditprofile(){
+    return this.http.get(`${this.url}/api/editprofile`,{withCredentials:true})
+  }
+
+  edituserdata(data:any){
+    return this.http.post(`${this.url}/api/editprofile`,data,{withCredentials:true})
+  }
+  logoutpost(){
+    return this.http.post(`${this.url}/api/logout`,{},{withCredentials:true})
+  }
+
+  loadhome(){
+    return this.http.get(`${this.url}/api/home`,{withCredentials:true})
+  }
 }

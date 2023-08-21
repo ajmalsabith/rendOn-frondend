@@ -1,6 +1,7 @@
 import { Component,OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AdminserviceService } from 'src/app/service/admin/adminservice.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit{
 
   reativeform!:FormGroup
   message=''
-  constructor(private router:Router,adminservice:AdminserviceService){}
+  constructor(private router:Router,private adminservice:AdminserviceService,private toaster:ToastrService){}
 
   ngOnInit(): void {
     this.reativeform=new FormGroup({
@@ -31,8 +32,22 @@ export class LoginComponent implements OnInit{
     return this.reativeform.get('password')
   }
   submit(){
-    console.log('heoloow');
-    
+
+    const admindata= this.reativeform.getRawValue()
+
+    this.adminservice.adminloginpost(admindata).subscribe((res:any)=>{
+      console.log(res);
+      const token=res.token
+
+      localStorage.setItem("adminsecret",token)
+      
+      this.router.navigate(['admin/dashboard'])
+    },(err)=>{
+      this.toaster.error(err.error.message)
+      this.message=err.error.message
+    })
+
+
   }
 
 }

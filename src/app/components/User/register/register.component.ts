@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserserviceService } from '../../../service/userservice/userservice.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userservice: UserserviceService,
-    private router: Router
+    private router: Router,
+    private toaster:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -48,10 +50,13 @@ export class RegisterComponent implements OnInit {
 
     this.userservice.postregister(user).subscribe(
       (res) => {
+        this.toaster.success(res.message)
+        this.toaster.success('otp sent to your email')
         this.router.navigate(['/otp']);
       },
       (err) => {
         this.message = err.error.message;
+        this.toaster.error(err.error.message)
       }
     );
   }

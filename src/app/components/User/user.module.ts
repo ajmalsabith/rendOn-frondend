@@ -16,6 +16,7 @@ import { GenricComponent } from './genric/genric.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddvehicleComponent } from './addvehicle/addvehicle.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { AdsComponent } from './ads/ads.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     GenricComponent,
     ProfileComponent,
     AddvehicleComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    AdsComponent
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg sty">
+    <div class="container">
+      <a class="navbar-brand" >
+        <img src="assets/logo-png-removebg-preview (2).png" alt="..." height="36">
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse lif" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link "  [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active"  >dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/customer']" routerLinkActive="router-link-active"  >customer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/business']" routerLinkActive="router-link-active"  >business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/service']" routerLinkActive="router-link-active" >servicer</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
