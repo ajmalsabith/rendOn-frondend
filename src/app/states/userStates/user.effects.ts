@@ -1,10 +1,10 @@
 
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { editprofileload,editprofilesuccess,loadhome,loadhomesuccess  } from "./user.action";
-import { map, switchMap } from "rxjs";
+import { editprofileload,editprofilesuccess,loadhome,loadhomesuccess,loadhomefailure  } from "./user.action";
+import { catchError, map, mergeMap, of, switchMap } from "rxjs";
 import { UserserviceService } from "src/app/service/userservice/userservice.service";
-import {users,vehilceldata} from '../../Model/user'
+import {users,vehicleModel} from '../../Model/user'
 
 
 @Injectable()
@@ -24,14 +24,16 @@ export class userEffects{
     )
 
 
-    loadhome$= createEffect(()=>
-         this.actions$.pipe(
+    loaduser$=createEffect(()=>{
+        return this.actions$.pipe(
             ofType(loadhome),
-            switchMap(()=>{
-                return this.userservice.loadhome()
-                .pipe(map((data)=>loadhomesuccess({vehicledatas:data as vehilceldata[] })))
-            })
-         )
-    )
+            mergeMap(()=>
+            this.userservice.loadhome().pipe(
+                map(data=>(loadhomesuccess({vehicledata:data as vehicleModel[]}))),
+                catchError((error)=>of(loadhomefailure({error})))
+            ))
+            
+        )
+    })
 }
 

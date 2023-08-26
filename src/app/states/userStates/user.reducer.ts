@@ -1,8 +1,9 @@
 
 import { createReducer, on } from "@ngrx/store";
-import {users, vehilceldata} from "../../Model/user";
+import {users, vehicleModel} from "../../Model/user";
 import { state } from '@angular/animations';
-import { editprofilesuccess, loadhomesuccess } from "./user.action";
+import { editprofilesuccess, loadhome, loadhomefailure, loadhomesuccess } from "./user.action";
+import { vehicleState } from "./state";
 
 export const initialStateOfUser:users= {
     _id: '',
@@ -15,9 +16,14 @@ export const initialStateOfUser:users= {
     is_verified: true,
     __v: '',
     image: '',
-    is_admin:false
+    is_admin:false,
+    post:0,
+    is_block:false,
+    rating:0,
+    qualification:'',
+    place:'',
+    aboutyou:''
 }
-export const initialStateOfvehicles:vehilceldata[]=[]
 
 
 const _editProfileReducer = createReducer(
@@ -31,18 +37,36 @@ export function profileReducer(state:any,action:any){
     return _editProfileReducer(state,action)
 }
 
+export const initialStateOfvehicles:vehicleModel[]=[]
 
-const _loadhomepage =createReducer(
-    initialStateOfvehicles,
-    on(loadhomesuccess,(state,{vehicledatas})=>{
-        console.log(vehicledatas);
-        
-        return vehicledatas
-    })
-)
 
-export function homereducer(state:any,action:any){
-    return _loadhomepage(state,action)
-}
 
+export const initialState: vehicleState = {
+    vehicledata: [],
+    loading: false,
+    loaded: false,
+    error: null,
+  };
+
+  export const vehicleReducer = createReducer(
+    initialState,
+    on(loadhome,(state)=>({
+        ...state,
+        loading:true
+    })),
+
+    on(loadhomesuccess, (state, { vehicledata }) => ({
+        ...state,
+        loading: false,
+        loaded: true,
+        vehicledata,
+      })),
+
+    on(loadhomefailure, (state, { error }) => ({
+        ...state,
+        loading: false,
+        error,
+      }))
+
+  )
 

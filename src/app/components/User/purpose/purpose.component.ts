@@ -21,12 +21,6 @@ export class PurposeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userservice.getuser().subscribe((res)=>{
-      this.router.navigate(['home'])
-    },(err)=>{
-      this.router.navigate(['/login'])
-    })
-
     this.form = this.formbuilder.group({
       purpose: ''
     });
@@ -47,7 +41,7 @@ export class PurposeComponent implements OnInit {
     this.userservice.postpurpose(data).subscribe(
       (res) => {
         
-        this.router.navigate(['/login']);
+        this.router.navigate(['home']);
       },
       (err) => {
         this.message =err.error.message;

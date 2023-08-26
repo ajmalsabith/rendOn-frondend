@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
+import { Subscription } from 'rxjs'; 
 
 @Component({
   selector: 'app-profile',
@@ -14,16 +14,20 @@ export class ProfileComponent implements OnInit{
   userdata:any
   vehicledata:any
   addvehcle:boolean=false
-  editvehicle:boolean=false
-  datashow:boolean=true
+  editprofile:boolean=false
+  datashow:boolean=true 
+
 
   constructor(private userservice:UserserviceService,private toaster:ToastrService,private router:Router){}
+ 
   ngOnInit(): void {
 
     this.userservice.getprofile().subscribe((res:any)=>{
      
+      console.log('haaaaai');
       
       this.userdata=res.userdata      
+      console.log(this.userdata);
       this.vehicledata=res.vehicledata
       
     },(err)=>{
@@ -33,31 +37,42 @@ export class ProfileComponent implements OnInit{
 
   showAddVehicle() {
     this.addvehcle = true;
-    this.editvehicle = false;
+    this.editprofile = false;
     this.datashow = false;
   }
 
   showEditProfile() {
     this.addvehcle = false;
-    this.editvehicle = true;
+    this.editprofile = true;
     this.datashow = false;
   }
 
   updateDatashow(Value:boolean){
     this.datashow=Value
-    this.editvehicle=false
+    this.editprofile=false
     this.addvehcle=false
   }
 
-  
 
-  logout(){
-    this.userservice.logoutpost().subscribe((res:any)=>{
-       this.router.navigate(['login'])
-       this.toaster.success(res.message)
+
+  removevehicle(id:string){
+    this.userservice.removevehicle(id).subscribe((res:any)=>{
+      this.toaster.success(res.message)
+      this.ngOnInit()
+
     },(err)=>{
-      this.toaster.error('somthing wrong...!')
+      this.toaster.error(err.error.message)
     })
   }
 
+ 
+
+  logout(){
+    localStorage.removeItem('usersecret')
+    
+    this.router.navigate(['/login'])
+  
+  }
+  
+  
 }

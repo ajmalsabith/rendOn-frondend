@@ -28,8 +28,13 @@
                   <h5 class="card-title">{{item.name}}</h5>
                   <p class="card-text">{{item.phone}}</p>
                   <p>{{item.email}}</p>
+                  <p>{{item.is_block}}</p>
                   <div class="justify-content-center align-items-center d-flex">
-                    <a  class="m-3 btn btn-danger">Block</a>
+                    <a *ngIf="!item.is_block; else unblock" class="m-3 btn btn-danger" (click)="block(item._id)">Block</a>
+                    <ng-template #unblock>
+                      <a class="m-3 btn btn-primary" (click)="block(item._id)">Unblock</a>
+                    </ng-template>
+                    
                     <a  class="m-3 btn btn-warning">Edit</a>
                   </div>
                  
@@ -39,37 +44,3 @@
     </div>
 </div>
 
-
-
-<!-- 
-<div class="container mt-5">
-    <h1 style="text-align: center; font-weight: bolder; font-family: italic;">Customers List</h1>
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>photo</th>
-                    <th>Name</th>
-                    <th>E-mail</th>
-                    <th>Phone</th>
-                    <th>Connections</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of customerdata; let i = index">
-                    <td>{{ i + 1 }}</td>
-                    <td>
-                        <img style="width:150px; height: 100px;" src="http://localhost:5000/public/{{item.image}}" alt="">
-                    </td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.email }}</td>
-                    <td>{{ item.phone }}</td>
-                    <td>{{ item.connections }}</td>
-                    <td><button class="btn btn-danger">Block</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->

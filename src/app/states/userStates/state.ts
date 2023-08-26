@@ -1,4 +1,4 @@
-import {users, vehilceldata} from '../../Model/user'
+import {users, vehicleModel} from '../../Model/user'
 
 export interface appprofile{
     userdata:users
@@ -6,6 +6,12 @@ export interface appprofile{
 
 
 export interface apphome{
-    vehicledatas:vehilceldata[]
+    vehicledata:vehicleModel[]
 }
 
+export interface vehicleState {
+    vehicledata: ReadonlyArray<vehicleModel>;
+    loading: boolean;
+    loaded: boolean;
+    error: any;
+}

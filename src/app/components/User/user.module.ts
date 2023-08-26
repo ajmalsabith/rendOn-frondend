@@ -17,6 +17,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddvehicleComponent } from './addvehicle/addvehicle.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { AdsComponent } from './ads/ads.component';
+import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
+import { FilterPipe } from '../../pipes/filter.pipe';
+import { SearchPipe } from '../../pipes/search.pipe';
+import { BusinessListComponent } from './business-list/business-list.component';
+import { ServiceListComponent } from './service-list/service-list.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -33,17 +41,22 @@ import { AdsComponent } from './ads/ads.component';
     ProfileComponent,
     AddvehicleComponent,
     EditprofileComponent,
-    AdsComponent
+    AdsComponent,
+    EditVehicleComponent,
+    SearchPipe,
+    FilterPipe,
+    BusinessListComponent,
+    ServiceListComponent
+    
+
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     userRoutingModule,
     HttpClientModule,
-    CommonModule,
-   
-    
-
+    CommonModule
+  
   ],
   providers: [],
   bootstrap: []

@@ -15,12 +15,6 @@ export class OtppassComponent {
   message=''
     
     ngOnInit(): void {
-      
-      this.userservice.getuser().subscribe((res)=>{
-        this.router.navigate(['home'])
-      },(err)=>{
-        this.router.navigate(['/login'])
-      })
       this.form=this.formbuilder.group({
         otppass:''
       })

@@ -5,15 +5,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { BusinessComponent } from './business/business.component';
 import { ServiceComponent } from './service/service.component';
+import { VehicleslistComponent } from './vehicleslist/vehicleslist.component';
+import { AdminGuard } from 'src/app/guards/admin.guard';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard',component: DashboardComponent },
-  { path: 'customer',component: CustomerComponent },
-  { path: 'business',component: BusinessComponent },
-  { path: 'service',component: ServiceComponent }
+  { path: '', component: LoginComponent,canActivate:[AdminGuard] },
+  { path: 'dashboard',component: DashboardComponent,canActivate:[AdminGuard]  },
+  { path: 'customer',component: CustomerComponent,canActivate:[AdminGuard] },
+  { path: 'business',component: BusinessComponent,canActivate:[AdminGuard] },
+  { path: 'service',component: ServiceComponent ,canActivate:[AdminGuard]},
+  { path: 'vehiclelist',component: VehicleslistComponent,canActivate:[AdminGuard] }
+  
 ];
 
 @NgModule({

@@ -1,21 +1,19 @@
-import { createSelector } from '@ngrx/store';
-import { users,vehilceldata } from '../../Model/user'
-import {apphome, appprofile} from './state'
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { users,vehicleModel } from '../../Model/user'
+import {apphome, appprofile, vehicleState} from './state'
 
 export const profileRootSelector = (state:appprofile)=>state.userdata;
 export const userProfile = createSelector(
     profileRootSelector,
-    (userdata:users)=>{        
+    (userdata:users)=>{
+                
         return userdata
     }
 )
 
-export const loadhomerootselecter=(state:apphome)=>state.vehicledatas;
 
-export const loadhomedata= createSelector(
-    loadhomerootselecter,
-    (vehicledatas:vehilceldata[])=>{
-        
-        return [...vehicledatas]
-    }
-)
+export const selectvehicleState = createFeatureSelector<vehicleState>('vehilceldata');
+
+export const selectvehicles=createSelector(selectvehicleState,state=>state.vehicledata)
+export const selectloading=createSelector(selectvehicleState,state=>state.loading)
+export const selectloaded=createSelector(selectvehicleState,state=>state.loaded)

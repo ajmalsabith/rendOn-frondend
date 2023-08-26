@@ -28,7 +28,9 @@ export class EditprofileComponent implements OnInit{
   email?=''
   type?=''
   dateshow?=false
-
+  qualification=''
+  place=''
+  aboutyou=''
 
 
   constructor(
@@ -44,8 +46,10 @@ export class EditprofileComponent implements OnInit{
     this.reativeform= new FormGroup({
       name:new FormControl('',Validators.required),
       phone:new FormControl('',[Validators.required, Validators.pattern(/^\d{10}$/)]),
-      purpose:new FormControl('',[Validators.required]),
-      image:new FormControl('',[Validators.required])    
+      image:new FormControl('',[Validators.required]),
+      place:new FormControl('',[Validators.required]),
+      qualification:new FormControl('',[Validators.required]),
+      aboutyou:new FormControl('',[Validators.required])
     
     })
   }
@@ -55,8 +59,10 @@ userData$ = this.store.pipe(select(userProfile)).subscribe(userProfileData => {
   this.name = userProfileData?.name;
   this.img = userProfileData?.image;
   this.phone=userProfileData?.phone
-  this.email=userProfileData?.email
-  this.type=userProfileData?.purpose
+  this.place=userProfileData?.place
+  this.qualification=userProfileData?.qualification
+  this.aboutyou=userProfileData?.aboutyou
+  
   console.log(userProfileData);
 });
 
@@ -79,7 +85,9 @@ submit(){
   const formdata=new FormData()
   formdata.append('name',user.name)
   formdata.append('phone',user.phone)
-  formdata.append('purpose',user.purpose)
+  formdata.append('place',user.place)
+  formdata.append('qualification',user.qualification)
+  formdata.append('aboutyou',user.aboutyou)
   formdata.append('image',this.selectedImage1,this.selectedImage1.name)
   this.userservice.edituserdata(formdata).subscribe((res:any)=>{
     this.store.dispatch((editprofileload()))
@@ -105,12 +113,23 @@ get getphone(){
   return this.reativeform.get('phone')
 }
 
-get getpurpose(){
-  return this.reativeform.get('purpose')
+get getqualification(){
+  return this.reativeform.get('qualification')
 }
 
 get getimage(){
   return this.reativeform.get('image')
 }
+
+
+get getplace(){
+  return this.reativeform.get('place')
+}
+
+
+get getaboutyou(){
+  return this.reativeform.get('aboutyou')
+}
+
 
 }

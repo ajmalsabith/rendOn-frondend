@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminnav',
   templateUrl: './adminnav.component.html',
   styleUrls: ['./adminnav.component.css']
 })
-export class AdminnavComponent {
+export class AdminnavComponent implements OnInit{
 
+  constructor(private router:Router){}
+  ngOnInit(): void {
+    
+  }
+
+  logout(){
+    localStorage.removeItem('adminsecret')
+    this.router.navigate(['/admin'])
+  }
+   
 }

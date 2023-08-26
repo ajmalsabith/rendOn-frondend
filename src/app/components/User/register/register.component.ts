@@ -50,6 +50,8 @@ export class RegisterComponent implements OnInit {
 
     this.userservice.postregister(user).subscribe(
       (res) => {
+        const token=res.token
+        localStorage.setItem("usersecret",token)
         this.toaster.success(res.message)
         this.toaster.success('otp sent to your email')
         this.router.navigate(['/otp']);

@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h4>edit vehicle</h4>
+
+    <form [formGroup]="reativeform" (ngSubmit)="submit()">
+        <div class="d-flex align-items-center justify-content-center">
+
+       
+        <div *ngIf="datas"  class="row col-8 " style="border: 2px solid black; border-radius:30px;">
+            <div class="col-md-6 mb-3 mt-2">
+                <label for="name">{{datas.name}}</label>
+                <input type="text" class="form-control mt-4" formControlName="name"  value="{{datas.name}}"   >
+                
+                <label for="name">{{datas.rentAmount}}</label>
+
+                <input type="number" class="form-control mt-4" formControlName="rentamount" value="{{datas.rentAmount}}" id="vehicleAmount">
+                <label for="name">{{datas.type}}</label>
+
+                <input type="text" class="form-control mt-4"  formControlName="type" value="{{datas.type}}" id="vehicleType">
+                <label for="name">{{datas.place}}</label>
+
+                <input type="text" class="form-control mt-4"  formControlName="place" value="{{datas.place}}" id="placeInput">
+    
+            </div>
+            <div class="col-md-6 mb-3 mt-2">
+                <div class="mb-3">
+                    <div>
+                        <img style="width: 200px;height:150px;" src="http://localhost:5000/public/{{datas.proof}}" alt="...">
+                    </div>
+                    <label class="form-label mt-3">Vehicle RC Book Photo</label><hr>
+                    <input type="file" formControlName="proof" class="form-control" (change)="uploadImage1($event.target)">
+    
+                </div>
+                <div class="mb-3">
+                    <div >
+                        <img style="width: 200px;height:150px;" src="http://localhost:5000/public/{{datas.image}}" alt="...">
+                    </div>
+                    <label class="form-label mt-3">Your Vehicle Photo</label><hr>
+                    <input type="file" formControlName="image" class="form-control" (change)="uploadImage2($event.target)">
+    
+                </div>
+                
+            </div>
+            <button style="border-radius:30px;" type="submit"class="btn btn-primary">Submit</button>
+    
+        </div>
+        
+       </div>
+    </form>
+
+    
+</div>

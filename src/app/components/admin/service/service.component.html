@@ -29,8 +29,11 @@
                   <p class="card-text">{{item.phone}}</p>
                   <p>{{item.email}}</p>
                   <div class="justify-content-center align-items-center d-flex">
-                    <a  class="m-3 btn btn-danger">Block</a>
-                    <a  class="m-3 btn btn-warning">Edit</a>
+                    <a *ngIf="!item.is_block; else unblock" class="m-3 btn btn-danger" (click)="block(item._id)">Block</a>
+                    <ng-template #unblock>
+                      <a class="m-3 btn btn-primary" (click)="block(item._id)">Unblock</a>
+                    </ng-template>
+                    <a  class="m-3 btn btn-warning">Verify</a>
                   </div>
                  
                 </div>

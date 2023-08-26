@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
-import { vehilceldata } from 'src/app/Model/user';
+import { vehicleModel } from 'src/app/Model/user';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { loadhome } from 'src/app/states/userStates/user.action';
-import { loadhomedata } from 'src/app/states/userStates/user.selectors';
+import { selectvehicles } from 'src/app/states/userStates/user.selectors';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +15,49 @@ import { loadhomedata } from 'src/app/states/userStates/user.selectors';
 export class HomeComponent implements OnInit {
 
 
-  vehicledatass!:vehilceldata
+  vehicledatass$!:any
+  searchText = '';
+  filtertval=''
+
+  serchdata(Value:string){
+    this.searchText=Value
+  }
+
+  filtertype(value:string){
+    this.filtertval=value
+  }
 
   constructor(
-    private store:Store<{vehicledatas:vehilceldata[]}>
+    private store:Store<{vehicledata:vehicleModel[]}>
    
     ){}
 
   ngOnInit(): void {
+    this.getdata()
     this.store.dispatch(loadhome())
+      
   }
-  vehicledata$ = this.store.pipe(select(loadhomedata))
+
+  iconHighlighted = false;
+
+  toggleIconColor(vehicle:vehicleModel) {
+
+    console.log(vehicle);
+    
+    vehicle.iconHighlighted = !vehicle.iconHighlighted;
+
+    
+  }
+
+  
+
+  getdata(){
+   this.store.pipe(select(selectvehicles)).subscribe((res)=>{
+   
+    this.vehicledatass$=res
+    
+   })
+
+  }
+  
 }

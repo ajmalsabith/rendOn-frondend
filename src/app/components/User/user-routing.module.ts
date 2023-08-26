@@ -10,6 +10,9 @@ import { OtppassComponent } from './otppass/otppass.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddvehicleComponent } from './addvehicle/addvehicle.component';
+import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
+import { BusinessListComponent } from './business-list/business-list.component';
+import { ServiceListComponent } from './service-list/service-list.component';
 
 const routes: Routes = [  
     
@@ -23,8 +26,11 @@ const routes: Routes = [
   {path:'forgetpass',component:ForgetpasswordComponent},
   {path:'setpassword',component:NewpasswordComponent},
   {path:'profile',component:ProfileComponent},
-  {path:'addvehicle',component:AddvehicleComponent}
-
+  {path:'addvehicle',component:AddvehicleComponent},
+  {path:'editvehicle/:id',component:EditVehicleComponent},
+  {path:'businesslist',component:BusinessListComponent},
+  {path:'servicelist',component:ServiceListComponent}
+  
 ];
   
 @NgModule({

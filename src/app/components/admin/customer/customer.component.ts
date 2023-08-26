@@ -11,6 +11,7 @@ export class CustomerComponent implements OnInit {
 
 
   customerdata:any
+  actin=''
   constructor(private adminservice:AdminserviceService,private toaster:ToastrService){}
   ngOnInit(): void {
     this.adminservice.customerget().subscribe((res:any)=>{
@@ -20,6 +21,21 @@ export class CustomerComponent implements OnInit {
     },(err)=>{
       this.toaster.error(err.error.message)
     })
+  }
+
+  block(id:string){
+
+    
+
+    if (id) {
+      this.adminservice.useractions(id).subscribe((res:any)=>{
+        this.toaster.success(`user is ${res.success}`)
+
+        this.ngOnInit()
+      },(err)=>{
+        this.toaster.error(err.error.message)
+      })
+    }
   }
   
 }

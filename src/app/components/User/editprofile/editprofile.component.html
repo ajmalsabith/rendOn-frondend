@@ -1,7 +1,7 @@
 
 <form [formGroup]="reativeform" (ngSubmit)="submit()">
     <h4>edit prfile</h4>
-    <div class="row" style="border: 2px solid black;">
+    <div class="row" style="border: 2px solid black; border-radius:30px;">
         <div class="col-md-6 mb-3 mt-2">
             <div *ngIf="img ; else noimg">
              <img style="width: 200px;height:150px;border-radius:50%;" src="http://localhost:5000/public/{{img}}" alt="...">
@@ -21,18 +21,21 @@
              
          </div>
         <div class="col-md-6 mb-3 mt-2">
-            <input type="text" class="form-control mt-4" formControlName="name" value="{{name}}" id="vehicleName" >
+            <input type="text" class="form-control mt-2" formControlName="name" value="{{name}}" id="vehicleName" >
             <span style="color: red;" *ngIf="getname && getname.invalid && getname.touched">please enter your name</span><br>
-
-            <input type="number" class="form-control mt-4" formControlName="phone"  value="{{phone}}"  id="vehicleAmount">
+            <input type="text" class="form-control mt-2" formControlName="place" value="{{place}}" id="vehicleName" >
+            <span style="color: red;" *ngIf="getplace && getplace.invalid && getplace.touched">please enter your place</span><br>
+            <input type="text" class="form-control mt-2" formControlName="aboutyou" value="{{aboutyou}}" id="vehicleName" >
+            <span style="color: red;" *ngIf="getaboutyou && getaboutyou.invalid && getaboutyou.touched">please enter about you</span><br>
+            <div *ngIf="qualification">
+                <input type="text" class="form-control mt-2" formControlName="qualification" value="{{qualification}}" id="vehicleName" >
+                <span style="color: red;" *ngIf="getqualification && getqualification.invalid && getqualification.touched">please enter your qualification</span><br>
+            </div>         
+            <input type="number" class="form-control mt-2" formControlName="phone"  value="{{phone}}"  id="vehicleAmount">
             <span style="color: red;" *ngIf="getphone && getphone.invalid && getphone.touched">please enter your name</span><br>
-
-            <input type="text" class="form-control mt-4" formControlName="purpose"  value="{{type}}"  id="vehicleType">
-            <span style="color: red;" *ngIf="getpurpose && getpurpose.invalid && getpurpose.touched">please enter your name</span><br>
-
         </div>
        
-        <button type="submit" [disabled]="reativeform.invalid"  class="btn btn-primary">Submit</button>
+        <button style="border-radius: 30px;" type="submit" [disabled]="reativeform.invalid"  class="btn btn-primary">Submit</button>
 
     </div>
 </form>

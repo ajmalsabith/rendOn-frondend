@@ -15,11 +15,7 @@ export class LoginComponent implements OnInit{
   constructor(private userservice:UserserviceService,private router:Router,private toaster:ToastrService){}
 
   ngOnInit(): void {
-    this.userservice.getuser().subscribe((res)=>{
-      this.router.navigate(['home'])
-    },(err)=>{
-      this.router.navigate(['/login'])
-    })
+    
     this.reativeform= new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('',[Validators.required, Validators.minLength(8)])
@@ -33,7 +29,11 @@ export class LoginComponent implements OnInit{
 
     this.userservice.postlogin(userdata).subscribe((res:any)=>{
 
-      this.toaster.success(res.massage)
+      const token=res.token
+
+      localStorage.setItem("usersecret",token)
+
+      this.toaster.success(res.message)
       this.router.navigate(['/home'])
 
 

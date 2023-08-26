@@ -11,6 +11,21 @@
 .imgfit{
     object-fit:cover;
 }
+
+.dropdown-toggle::after {
+    content: none;
+  }
+
+  .dots:hover{
+    color: chocolate;
+  }
+  
+
+  .colr{
+    background-color: rgb(231, 245, 245);
+  }
+
+
 @media (min-width:991px){
     .firstone{
         display: none;

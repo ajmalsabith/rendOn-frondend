@@ -1,23 +1,58 @@
 <app-navbar></app-navbar>
-<app-genric></app-genric>
 <app-ads></app-ads>
-<div class="container">
+<app-genric (serchdata)="serchdata($event)" (filtertype)="filtertype($event)"></app-genric>
+
+<div class="container mt-2">
     <h4 class="mt-3 mb-3">New Recommended Vehicles</h4>
-    <div class="row" *ngIf="(vehicledata$ | async) as vehicledata">
-        <div class="col-md-3" *ngFor="let user of vehicledata">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">{{ user.ownername }}</div>
-                <div class="card-body">
-                    <div *ngFor="let vehicle of user.vehicles">
-                        <h5 class="card-title">{{ vehicle.name }}</h5>
-                        <p class="card-text">Rent: {{ vehicle.rentAmount }}</p>
-                        <p class="card-text">Type: {{ vehicle.type }}</p>
-                        <p class="card-text">Place: {{ vehicle.place }}</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
+    <div class="row" *ngIf="vehicledatass$">
+        <div class="col-md-3 mt-3" *ngFor="let vehicle of vehicledatass$ | search : searchText | filter : filtertval">
+
+            <div class="card">
+                <div>
+                    <img style="height: 200px;" src="http://localhost:5000/public/{{vehicle.image}}"
+                        class="card-img-top" alt="...">
                 </div>
+                <div class="card-body row">
+                    <div class="col-5">
+                        <p style="font-weight: bold;" class="ellipsis">{{ vehicle.name }}</p>
+                        <h4 style="font-weight: bolder;"> {{ vehicle.rentAmount }}</h4>
+                    </div>
+                    <div class="col-4">
+                        <div style="border-radius:20px;background-color:goldenrod;width: fit-content;">
+                            <p style="font-weight: bold;" class="m-2">{{ vehicle.status }}</p>
+                        </div>
+
+
+                    </div>
+                    <div class="col-3">
+                        <p style="font-weight: bold;" class="m-2 d-flex align-items-center">
+                            <i class="material-icons">remove_red_eye</i>-{{ vehicle.views }}
+                        </p>
+                        <p
+                       
+                        style="font-weight: bold;"
+                        class="m-2 d-flex align-items-center"
+                      >
+                        <i [ngClass]="{ 'highlight':vehicle.iconHighlighted }" (click)="toggleIconColor(vehicle)" class="material-icons">thumb_up</i>-{{ vehicle.like }}
+                      </p>
+                    </div>
+                    <hr>
+                    <div class="d-flex align-items-center justify-content-center align-items-center mb-3">
+                        <button class="m-2 btn btn-secondary">view more</button>
+                        <button class="m-2 btn btn-secondary">connect</button>
+
+                    </div>
+                    <hr>
+                    <div>
+                        <span>{{vehicle.place}}</span>
+                        <span style="float: right;">{{vehicle.date | date:'yyyy-MM-dd'}}</span>
+                    </div>
+
+                </div>
+
+
             </div>
+
         </div>
     </div>
 </div>
-
