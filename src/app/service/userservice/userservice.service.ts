@@ -67,9 +67,13 @@ export class UserserviceService {
   removevehicle(id:string){
     return this.http.post(`${this.url}/api/removevehi`,{id:id})
   }
+  
 
   getservicesdata(){
     return this.http.get(`${this.url}/api/getsevices`)
+  }
+  getviewprofile(id:string){
+    return this.http.post(`${this.url}/api/viewprofile`,{id:id})
   }
 
   getbusinessdata(){

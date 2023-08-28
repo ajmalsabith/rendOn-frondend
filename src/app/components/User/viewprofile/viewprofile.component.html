@@ -1,25 +1,11 @@
-<app-navbar (updateDatashow)="updateDatashow($event)"></app-navbar>
+<app-navbar></app-navbar>
 
 
 <div class="container mt-1">
 
   <div class="row">
     <div class="col-md-4">
-      <div class="m-2 stylebt firstone">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            actions
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="showAddVehicle()" >ADD VEHICLE</a></li>
-            <li><a class="dropdown-item" (click)="showEditProfile()" >EDIT PROFILE</a></li>
-            <li><a class="dropdown-item" >GET SUBSCRIPTION</a></li>
-            <li><a style="color: red;" class="dropdown-item" (click)="logout()">LogOut</a></li>
-
-          </ul>
-        </div>
-      </div><br>
+     
       <div *ngIf="userdata.image; else noImage" class="mt-5  d-flex align-items-center justify-content-center">
         <img style="height: 300px;width: 300px;border-radius:50%;" src="http://localhost:5000/public/{{userdata.image}}" alt="...">
       </div>
@@ -41,7 +27,7 @@
 
     </div>
 
-    <div class="col-lg-6 mt-5 " *ngIf="datashow==true">
+    <div class="col-lg-6 mt-5">
       <div class="newboot" style="background-color:aqua;border-radius:40px;width:fit-content;">
         <span class="boot m-2">{{userdata.purpose}}</span>
       </div>
@@ -55,15 +41,6 @@
             </div>
             <div class="col-sm-9">
               <p class="text-muted mb-0">{{userdata.name}}</p>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Email</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{userdata.email}}</p>
             </div>
           </div>
           <hr>
@@ -106,27 +83,6 @@
         </div>
       </div>
     </div>
-    <div *ngIf="addvehcle" class="col-lg-6 mt-4">
-      <app-addvehicle (updateDatashow)="updateDatashow($event)"></app-addvehicle>
-    </div>
-    <div *ngIf="editprofile" class="col-lg-6 mt-4">
-      <app-editprofile  (updateDatashow)="updateDatashow($event)"></app-editprofile>
-    </div>
-    
-    <div class="col-md-1 m-2 stylebt lastone">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          actions
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" (click)="showAddVehicle()" >ADD
-              VEHICLE</a></li>
-          <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
-          <li><a class="dropdown-item" href="#">GET SUBSCRIPTION</a></li>
-          <li><a style="color: red;" class="dropdown-item" (click)="logout()">LogOut</a></li>
-        </ul>
-      </div>
-    </div>
   </div>
   <hr>
   <div class="row" *ngIf="userdata || vehicledata">
@@ -166,26 +122,13 @@
                 <p class="mt3" style="font-weight: bolder;">views -{{item.views}}</p>
   
                </div>
-               <div class="col-1 ">
-               
-                <div class="dropdown">
-                  <div class="dropdown-toggle dots" data-bs-toggle="dropdown" aria-expanded="false">
-                    &#8226;&#8226;&#8226;
-                  </div>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item " [routerLink]="['/editvehicle',item._id]" routerLinkActive="router-link-active" >Edit Vehicle</a></li>
-                    <li><a class="dropdown-item text-danger" (click)="removevehicle(item._id)">remove vehicle</a></li>
-                  </ul>
-                </div>
-                
-  
-               </div>
+              
               
                <div class="mb-1">
                 
                
-                <button style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">Show Faster</button>
-                <button class=" btn btn-info btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">Make running</button>
+                <button style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">chat owner</button>
+                <button class=" btn btn-info btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">add fav</button>
                </div>
                <hr>
                <div>

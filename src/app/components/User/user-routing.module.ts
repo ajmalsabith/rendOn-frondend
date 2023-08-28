@@ -13,23 +13,26 @@ import { AddvehicleComponent } from './addvehicle/addvehicle.component';
 import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
 import { BusinessListComponent } from './business-list/business-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
+import { userGuard } from 'src/app/guards/user.guard';
+import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 
 const routes: Routes = [  
     
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'purpose',component:PurposeComponent},
-  {path:'home',component:HomeComponent},
-  {path:'otp',component:OtpComponent},
-  {path:'otppass',component:OtppassComponent},
-  {path:'forgetpass',component:ForgetpasswordComponent},
-  {path:'setpassword',component:NewpasswordComponent},
-  {path:'profile',component:ProfileComponent},
+  {path:'login',component:LoginComponent,canActivate:[userGuard]},
+  {path:'register',component:RegisterComponent,canActivate:[userGuard]},
+  {path:'purpose',component:PurposeComponent,canActivate:[userGuard]},
+  {path:'home',component:HomeComponent,canActivate:[userGuard]},
+  {path:'otp',component:OtpComponent,canActivate:[userGuard]},
+  {path:'otppass',component:OtppassComponent,canActivate:[userGuard]},
+  {path:'forgetpass',component:ForgetpasswordComponent,canActivate:[userGuard]},
+  {path:'setpassword',component:NewpasswordComponent,canActivate:[userGuard]},
+  {path:'profile',component:ProfileComponent,canActivate:[userGuard]},
   {path:'addvehicle',component:AddvehicleComponent},
-  {path:'editvehicle/:id',component:EditVehicleComponent},
-  {path:'businesslist',component:BusinessListComponent},
-  {path:'servicelist',component:ServiceListComponent}
+  {path:'editvehicle/:id',component:EditVehicleComponent,canActivate:[userGuard]},
+  {path:'businesslist',component:BusinessListComponent,canActivate:[userGuard]},
+  {path:'servicelist',component:ServiceListComponent,canActivate:[userGuard]},
+  {path:'viewprofile/:id',component:ViewprofileComponent,canActivate:[userGuard]},
+  
   
 ];
   
