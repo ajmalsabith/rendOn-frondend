@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="body">
+    <div class="payment-form">
+        <div class="d-flex align-items-center justify-content-center">
+            <h3>Choose a Plan</h3>
+
+        </div>
+            <label for="subscription-type">Select Subscription Type:</label>
+            <select id="subscription-type" name="subscription-type" [(ngModel)]="selectedSubscription">
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+            <label for="subscription-details">Subscription Details:</label>
+            <div id="subscription-details">
+                <label>1 month : $89</label>
+                <label>1 year : $1019</label>
+            </div>
+            <button type="submit" (click)="submit()">Proceed to Payment</button>
+    </div>
+</div>

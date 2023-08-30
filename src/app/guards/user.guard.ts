@@ -1,38 +1,57 @@
-import { CanActivateFn } from '@angular/router';
-
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class userGuard {
+
+export class userguardin{
+
   constructor(private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    const jwtToken = localStorage.getItem('usersecret');
-    const loginRoute = '/login';
 
-    if (
-      state.url !== loginRoute &&
-      
-      jwtToken === null
-    ) {
-      this.router.navigate(['/login']);
-      return false;
-    } else if (
-      (state.url === loginRoute) &&
-      jwtToken !== null
-    ) {
-      this.router.navigate(['/home']);
-      return false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    const userToken = localStorage.getItem('usersecret');
+
+    if (userToken) {
+      this.router.navigate(['/home'])
+      return false
+    }else{
+      return true
     }
-    return true;
+
+    return true
   }
 }
+
+
+
+@Injectable({
+  providedIn: 'root',
+})
+
+export class userguardout{
+
+  constructor(private router: Router) {}
+
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    const userToken = localStorage.getItem('usersecret');
+
+    if (!userToken) {
+      this.router.navigate(['/login'])
+      return false
+    }else{
+      return true
+    }
+
+    return true
+  }
+}
+
+
+
+
+  

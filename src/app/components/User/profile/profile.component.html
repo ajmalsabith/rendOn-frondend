@@ -12,11 +12,20 @@
             actions
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="showAddVehicle()" >ADD VEHICLE</a></li>
-            <li><a class="dropdown-item" (click)="showEditProfile()" >EDIT PROFILE</a></li>
-            <li><a class="dropdown-item" >GET SUBSCRIPTION</a></li>
+            <li *ngIf="userdata.post==0 || sub ;else notsub"><a class="dropdown-item" (click)="showAddVehicle()" >ADD
+                VEHICLE</a></li>
+            <ng-template #notsub>
+              <li *ngIf="userdata.purpose!='customer'"><a class="dropdown-item" (click)="notakensub()" >ADD
+                VEHICLE</a></li>
+            </ng-template>    
+            <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
+            <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
+              <a class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>
+            </li>          
+            <ng-template #notis>
+              <li *ngIf="userdata.purpose!='customer'" ><a class="dropdown-item" (click)="takendsub()" >GET SUBSCRIPTION</a></li>
+            </ng-template>
             <li><a style="color: red;" class="dropdown-item" (click)="logout()">LogOut</a></li>
-
           </ul>
         </div>
       </div><br>
@@ -119,10 +128,19 @@
           actions
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" (click)="showAddVehicle()" >ADD
+          <li *ngIf="userdata.post==0 || sub ;else notsub"><a class="dropdown-item" (click)="showAddVehicle()" >ADD
               VEHICLE</a></li>
+          <ng-template #notsub>
+            <li *ngIf="userdata.purpose!='customer'"><a class="dropdown-item" (click)="notakensub()" >ADD
+              VEHICLE</a></li>
+          </ng-template>    
           <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
-          <li><a class="dropdown-item" href="#">GET SUBSCRIPTION</a></li>
+          <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
+            <a class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>
+          </li>          
+          <ng-template #notis>
+            <li *ngIf="userdata.purpose!='customer'" ><a class="dropdown-item" (click)="takendsub()" >GET SUBSCRIPTION</a></li>
+          </ng-template>
           <li><a style="color: red;" class="dropdown-item" (click)="logout()">LogOut</a></li>
         </ul>
       </div>

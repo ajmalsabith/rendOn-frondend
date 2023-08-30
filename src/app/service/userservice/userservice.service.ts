@@ -79,4 +79,8 @@ export class UserserviceService {
   getbusinessdata(){
     return this.http.get(`${this.url}/api/getbusiness`)
   }
+
+  subscriptionsend(data:any){
+    return this.http.post(`${this.url}/api/subscription`,{data:data})
+  }
 }

@@ -2,7 +2,8 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs'; 
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,7 @@ export class ProfileComponent implements OnInit{
 
   userdata:any
   vehicledata:any
+  sub:any
   addvehcle:boolean=false
   editprofile:boolean=false
   datashow:boolean=true 
@@ -27,6 +29,7 @@ export class ProfileComponent implements OnInit{
       console.log('haaaaai');
       
       this.userdata=res.userdata      
+      this.sub=res.subdata      
       console.log(this.userdata);
       this.vehicledata=res.vehicledata
       
@@ -52,6 +55,28 @@ export class ProfileComponent implements OnInit{
     this.editprofile=false
     this.addvehcle=false
   }
+
+
+  takendsub(){
+    Swal.fire({
+      icon: 'error',
+      title: 'you already Subscription Redeemed!',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+  })
+  }
+
+  notakensub(){
+    Swal.fire({
+      icon: 'error',
+      title: 'you cant add !',
+      text: 'if you want add you should taken subscription',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+  })
+  }
+
+
 
 
 

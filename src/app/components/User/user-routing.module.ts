@@ -13,26 +13,30 @@ import { AddvehicleComponent } from './addvehicle/addvehicle.component';
 import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
 import { BusinessListComponent } from './business-list/business-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
-import { userGuard } from 'src/app/guards/user.guard';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+
+import {userguardin,userguardout} from 'src/app/guards/user.guard'
+import { SubscriptionComponent } from './subscription/subscription.component';
+
+
 
 const routes: Routes = [  
     
-  {path:'login',component:LoginComponent,canActivate:[userGuard]},
-  {path:'register',component:RegisterComponent,canActivate:[userGuard]},
-  {path:'purpose',component:PurposeComponent,canActivate:[userGuard]},
-  {path:'home',component:HomeComponent,canActivate:[userGuard]},
-  {path:'otp',component:OtpComponent,canActivate:[userGuard]},
-  {path:'otppass',component:OtppassComponent,canActivate:[userGuard]},
-  {path:'forgetpass',component:ForgetpasswordComponent,canActivate:[userGuard]},
-  {path:'setpassword',component:NewpasswordComponent,canActivate:[userGuard]},
-  {path:'profile',component:ProfileComponent,canActivate:[userGuard]},
-  {path:'addvehicle',component:AddvehicleComponent},
-  {path:'editvehicle/:id',component:EditVehicleComponent,canActivate:[userGuard]},
-  {path:'businesslist',component:BusinessListComponent,canActivate:[userGuard]},
-  {path:'servicelist',component:ServiceListComponent,canActivate:[userGuard]},
-  {path:'viewprofile/:id',component:ViewprofileComponent,canActivate:[userGuard]},
-  
+  {path:'login',component:LoginComponent,canActivate:[userguardin]},
+  {path:'register',component:RegisterComponent,canActivate:[userguardin]},
+  {path:'purpose',component:PurposeComponent,canActivate:[userguardin]},
+  {path:'home',component:HomeComponent,canActivate:[userguardout]},
+  {path:'otp',component:OtpComponent,canActivate:[userguardin]},
+  {path:'otppass',component:OtppassComponent,canActivate:[userguardin]},
+  {path:'forgetpass',component:ForgetpasswordComponent,canActivate:[userguardin]},
+  {path:'setpassword',component:NewpasswordComponent,canActivate:[userguardin]},
+  {path:'profile',component:ProfileComponent,canActivate:[userguardout]},
+  {path:'addvehicle',component:AddvehicleComponent,canActivate:[userguardout]},
+  {path:'editvehicle/:id',component:EditVehicleComponent,canActivate:[userguardout]},
+  {path:'businesslist',component:BusinessListComponent,canActivate:[userguardout]},
+  {path:'servicelist',component:ServiceListComponent,canActivate:[userguardout]},
+  {path:'viewprofile/:id',component:ViewprofileComponent,canActivate:[userguardout]},
+  {path:'subscription',component:SubscriptionComponent,canActivate:[userguardout]},
   
 ];
   

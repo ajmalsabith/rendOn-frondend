@@ -23,6 +23,7 @@ import { SearchPipe } from '../../pipes/search.pipe';
 import { BusinessListComponent } from './business-list/business-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 
 
@@ -48,7 +49,8 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
     FilterPipe,
     BusinessListComponent,
     ServiceListComponent,
-    ViewprofileComponent
+    ViewprofileComponent,
+    SubscriptionComponent
     
 
   ],
