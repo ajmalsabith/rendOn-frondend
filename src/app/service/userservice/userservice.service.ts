@@ -83,4 +83,27 @@ export class UserserviceService {
   subscriptionsend(data:any){
     return this.http.post(`${this.url}/api/subscription`,{data:data})
   }
+  showfasterpay(data:any){
+    return this.http.post(`${this.url}/api/showfaster`,{data:data})
+  }
+  singlevehicle(id:string){
+    return this.http.post(`${this.url}/api/singleview`,{id:id})
+  }
+  saveimg(id:string){
+    return this.http.post(`${this.url}/api/saveimg`,{id:id})
+  }
+
+  getsavedData(){
+    return this.http.get(`${this.url}/api/savedDatas`)
+  }
+
+
+  removesaved(id:string){
+    return this.http.post(`${this.url}/api/removesaved`,{id:id})
+  }
+
+
+  makechnge(id:string){
+    return this.http.post(`${this.url}/api/makechange`,{id:id})
+  }
 }

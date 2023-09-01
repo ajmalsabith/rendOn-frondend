@@ -17,16 +17,18 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 
 import {userguardin,userguardout} from 'src/app/guards/user.guard'
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { SinglePageComponent } from './single-page/single-page.component';
+import { SavedComponent } from './saved/saved.component';
 
 
 
 const routes: Routes = [  
-    
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'login',component:LoginComponent,canActivate:[userguardin]},
   {path:'register',component:RegisterComponent,canActivate:[userguardin]},
-  {path:'purpose',component:PurposeComponent,canActivate:[userguardin]},
+  {path:'purpose',component:PurposeComponent},
   {path:'home',component:HomeComponent,canActivate:[userguardout]},
-  {path:'otp',component:OtpComponent,canActivate:[userguardin]},
+  {path:'otp',component:OtpComponent},
   {path:'otppass',component:OtppassComponent,canActivate:[userguardin]},
   {path:'forgetpass',component:ForgetpasswordComponent,canActivate:[userguardin]},
   {path:'setpassword',component:NewpasswordComponent,canActivate:[userguardin]},
@@ -37,8 +39,10 @@ const routes: Routes = [
   {path:'servicelist',component:ServiceListComponent,canActivate:[userguardout]},
   {path:'viewprofile/:id',component:ViewprofileComponent,canActivate:[userguardout]},
   {path:'subscription',component:SubscriptionComponent,canActivate:[userguardout]},
+  {path:'single-page/:id',component:SinglePageComponent,canActivate:[userguardout]},
+  {path:'saved',component:SavedComponent,canActivate:[userguardout]}
   
-];
+];  
   
 @NgModule({
   imports: [RouterModule.forChild(routes)],

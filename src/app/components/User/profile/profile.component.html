@@ -21,7 +21,10 @@
             <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
             <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
               <a class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>
-            </li>          
+            </li> 
+            <li >
+              <a class="dropdown-item btn btn-info" [routerLink]="['/saved']" routerLinkActive="router-link-active">Saved</a>
+            </li>  
             <ng-template #notis>
               <li *ngIf="userdata.purpose!='customer'" ><a class="dropdown-item" (click)="takendsub()" >GET SUBSCRIPTION</a></li>
             </ng-template>
@@ -39,7 +42,14 @@
       </ng-template>
     
       <div class="d-flex justify-content-center">
-        <h1>{{userdata.name}}</h1>
+        <h1 *ngIf="!sub;else notsube">{{userdata.name}}</h1>
+        <ng-template #notsube>
+          <h1>{{userdata.name}}
+            <i class="material-icons" style="font-weight: bolder; color: green;font-size:30px;">check</i> 
+          </h1>
+          
+
+        </ng-template>
       </div>
 
 
@@ -137,7 +147,10 @@
           <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
           <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
             <a class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>
-          </li>          
+          </li>    
+          <li >
+            <a class="dropdown-item btn btn-info" [routerLink]="['/saved']" routerLinkActive="router-link-active">SAVED</a>
+          </li>        
           <ng-template #notis>
             <li *ngIf="userdata.purpose!='customer'" ><a class="dropdown-item" (click)="takendsub()" >GET SUBSCRIPTION</a></li>
           </ng-template>
@@ -168,8 +181,11 @@
                </div>
                <div class="col-4">
                 <p class="mt-2" style="font-weight: bolder;" >type - {{item.type}}</p>
-                <div  *ngIf="!item.is_block ; else elsetrue" class="bg-warning" style="border-radius: 10px; width: fit-content;">
-                  <p class="mt-2 m-2" style="font-weight: bolder;">{{item.status}}</p>
+                <div  *ngIf="!item.is_block ; else elsetrue" class="bg-dark" style="border-radius: 10px; width: fit-content;">
+                  <p *ngIf="item.status=='active';else not" class="mt-2 m-2" style="font-weight: bolder;color: antiquewhite;">{{item.status}}</p>
+                  <ng-template #not>
+                    <p class="mt-2 m-2" style="font-weight: bolder;color: rgb(255, 255, 255);">{{item.status}}</p>
+                  </ng-template>
                 </div>
                 <ng-template #elsetrue>
                   <div  class="bg-danger" style="border-radius: 10px; width: fit-content;">
@@ -202,8 +218,16 @@
                <div class="mb-1">
                 
                
-                <button style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">Show Faster</button>
-                <button class=" btn btn-info btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">Make running</button>
+                <button *ngIf="!item.showfaster;else takit"  (click)="showfast(item._id)" style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">Show Faster</button>
+                <ng-template #takit>
+                  <a style="margin-left: 10px; font-weight: bolder;" class="btn btn-success btn-sm">
+                    <i class="material-icons">check</i>
+                  </a>                  
+                  </ng-template>
+                <button *ngIf="item.status=='active' && !item.is_block;else notactive" (click)="makechange(item._id)" class=" btn btn-warning btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">Make running</button>
+                <ng-template #notactive>
+                  <button *ngIf="!item.is_block" (click)="makechange(item._id)" class=" btn btn-info btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">make active</button>
+                </ng-template>
                </div>
                <hr>
                <div>

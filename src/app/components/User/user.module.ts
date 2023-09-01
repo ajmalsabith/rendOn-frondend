@@ -24,6 +24,8 @@ import { BusinessListComponent } from './business-list/business-list.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { SinglePageComponent } from './single-page/single-page.component';
+import { SavedComponent } from './saved/saved.component';
 
 
 
@@ -50,7 +52,10 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     BusinessListComponent,
     ServiceListComponent,
     ViewprofileComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    SinglePageComponent,
+    SavedComponent,
+    
     
 
   ],

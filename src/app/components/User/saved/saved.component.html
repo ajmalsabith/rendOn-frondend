@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+    <div class="mt-4">
+        <span><a style="text-decoration: none;" href="home">home/</a>saved</span>
+
+    </div>
+    <div class="row">
+        <div *ngFor="let item of datas.saved" class="col-md-3 mt-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="http://localhost:5000/public/{{item.image}}" alt="Card image cap" style="height: 200px;">
+                <hr>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.vehiclename}}</h5>
+                  <p class="card-text" style="font-weight: bolder;">${{item.amount}}</p>
+                  <div class="row">
+                    <div class="col-6">{{item.date | date:'yyyy-MM-dd'}}</div>
+                    <div class="col-6 d-flex justify-content-end">{{item.place}}</div>
+                  </div>
+                  <hr>
+                  <a [routerLink]="['/single-page',item.vehicleId]" routerLinkActive="router-link-active"  class="btn btn-warning">view more</a>
+                  <a  class="btn btn-danger " (click)="removefromsaved(item._id)" style="float: right;">remove</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

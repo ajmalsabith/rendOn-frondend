@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="mt-4">
+        <span><a href="home">home/</a>single-page</span>
+
+    </div>
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+                    
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active">
+                            <img src="http://localhost:5000/public/{{vehicledata.image}}" style="max-width: 100%;height:506px;" />
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="details col-lg-6">
+                    <div>
+
+                    </div>
+                    <h3 class="product-title">{{vehicledata.name}}</h3>
+                    <br>
+                    <div class="row">
+                        <div class="col-5">
+                            <p style="font-weight: bold;" class="m-2 d-flex align-items-center">
+                                <i class="material-icons">remove_red_eye</i>-{{vehicledata.views}}
+                            </p>
+                            <p
+                           
+                            style="font-weight: bold;"
+                            class="m-2 d-flex align-items-center"
+                          >
+                            <i class="material-icons">thumb_up</i>-{{vehicledata.like}}
+                          </p>
+                        </div>
+                        <div *ngIf="userdata.image;else noimage" class="col-6 d-flex justify-content-end">
+                            <div class="user-profile">
+                                <a [routerLink]="['/viewprofile',userdata._id]" routerLinkActive="router-link-active" ><img style="width:100px; height: 80px;border-radius: 50%;" src="http://localhost:5000/public/{{userdata.image}}" alt="">
+                                <span>{{userdata.name}}</span></a>
+
+                            </div>
+                        </div>
+                        <ng-template #noimage>
+                            <div class="col-6 d-flex justify-content-end">
+                                <div class="user-profile">
+                                    <img style="width:100px; height: 80px;border-radius: 50%;" src="../../../../assets/149071.png" alt="">
+                                    <span>{{userdata.name}}</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div><br>
+                    <h4 class="price">Day Rent Amount : <span>${{vehicledata.rentAmount}}</span></h4>
+                   <br>
+                    <div class="action">
+                        <button class=" btn btn-warning text-white"  type="button">chat with owner</button>
+                        <button class=" btn btn-dark" type="button" style="margin-left: 25px;" (click)="saveimge(vehicledata._id)">save</button>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-6"style="font-weight: bold;"  >{{vehicledata.place}}</div>
+                        <div class="col-6 d-flex justify-content-end" style="font-weight: bold;">{{vehicledata.date | date:'yyyy-MM-dd'}}
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

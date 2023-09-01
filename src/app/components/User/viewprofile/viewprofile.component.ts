@@ -14,6 +14,7 @@ export class ViewprofileComponent implements OnInit{
   userdata:any
   vehicledata:any
   id!:string
+  sub!:any
 
   ngOnInit(): void {
 
@@ -27,10 +28,21 @@ export class ViewprofileComponent implements OnInit{
       this.userdata=res.userdata      
       console.log(this.userdata);
       this.vehicledata=res.vehicledata
+      this.sub=res.sub
+
       
     },(err)=>{
       this.toaster.error(err.message)
     })
   }
+
+  saveimge(id:string){
+    
+    this.userservice.saveimg(id).subscribe((res:any)=>{
+       this.toaster.success(res.message)
+    },(err)=>{
+      this.toaster.error(err.error.message)
+    })
+   }
 
 }

@@ -16,7 +16,14 @@
       </ng-template>
     
       <div class="d-flex justify-content-center">
-        <h1>{{userdata.name}}</h1>
+        <h1 *ngIf="!sub;else notsube">{{userdata.name}}</h1>
+        <ng-template #notsube>
+          <h1>{{userdata.name}}
+            <i class="material-icons" style="font-weight: bold; color: green;">check</i> 
+          </h1>
+          
+
+        </ng-template>
       </div>
 
 
@@ -127,8 +134,8 @@
                <div class="mb-1">
                 
                
-                <button style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">chat owner</button>
-                <button class=" btn btn-info btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">add fav</button>
+                <button style="margin-left: 10px;font-weight: bolder;" class=" btn btn-info btn-sm">chat with owner</button>
+                <button (click)="saveimge(item._id)" class=" btn btn-dark btn-sm " style="float: right;margin-right: 10px;font-weight: bolder;">Save</button>
                </div>
                <hr>
                <div>
