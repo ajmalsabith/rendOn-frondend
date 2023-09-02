@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   vehicledatass$!:any
   searchText = '';
   filtertval=''
+  count!:number
 
   serchdata(Value:string){
     this.searchText=Value

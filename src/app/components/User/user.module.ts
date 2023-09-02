@@ -26,6 +26,7 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SavedComponent } from './saved/saved.component';
+import { CountPipe } from 'src/app/pipes/count.pipe';
 
 
 
@@ -55,6 +56,7 @@ import { SavedComponent } from './saved/saved.component';
     SubscriptionComponent,
     SinglePageComponent,
     SavedComponent,
+    CountPipe
     
     
 

@@ -15,6 +15,7 @@ export class SinglePageComponent implements OnInit{
   id!:string
   vehicledata!:any
   userdata!:any
+  count!:number
   constructor(private route:ActivatedRoute,private userservice:UserserviceService,private toaster:ToastrService){}
 
   ngOnInit(): void {
@@ -26,6 +27,8 @@ export class SinglePageComponent implements OnInit{
    this.userservice.singlevehicle(this.id).subscribe((res:any)=>{
     this.vehicledata=res.data
     this.userdata=res.userdata
+this.count=this.vehicledata.views.length
+
     
    },(err)=>{
     this.toaster.error(err.error.message)
