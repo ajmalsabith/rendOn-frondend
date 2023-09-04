@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   vehicledatass$!:any
   searchText = '';
   filtertval=''
+  sortval=''
+
   count!:number
 
   serchdata(Value:string){
@@ -26,6 +28,10 @@ export class HomeComponent implements OnInit {
 
   filtertype(value:string){
     this.filtertval=value
+  }
+
+  sortdata(value:string){
+    this.sortval=value
   }
 
   constructor(

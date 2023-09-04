@@ -22,16 +22,11 @@ export class EditprofileComponent implements OnInit{
   selectedImage1!:File
 
 
-  name?=''
-  img?=''
-  phone?:number
-  email?=''
-  type?=''
+ 
   dateshow?=false
-  qualification=''
-  place=''
-  aboutyou=''
-
+  purpose:any
+  
+  userdata:any
 
   constructor(
     private store:Store<{userdata:users}>,
@@ -41,30 +36,21 @@ export class EditprofileComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    this.getdata()
     this.store.dispatch(editprofileload())
 
-    this.reativeform= new FormGroup({
-      name:new FormControl('',Validators.required),
-      phone:new FormControl('',[Validators.required, Validators.pattern(/^\d{10}$/)]),
-      image:new FormControl('',[Validators.required]),
-      place:new FormControl('',[Validators.required]),
-      qualification:new FormControl('',[Validators.required]),
-      aboutyou:new FormControl('',[Validators.required])
     
-    })
+      this.reativeform= new FormGroup({
+        name:new FormControl('',Validators.required),
+        phone:new FormControl('',[Validators.required, Validators.pattern(/^\d{10}$/)]),
+        image:new FormControl('',[Validators.required]),
+        place:new FormControl('',[Validators.required]),
+        qualification:new FormControl(''),
+        aboutyou:new FormControl('',[Validators.required])
+      
+      })
+    
   }
-
- 
-userData$ = this.store.pipe(select(userProfile)).subscribe(userProfileData => {
-  this.name = userProfileData?.name;
-  this.img = userProfileData?.image;
-  this.phone=userProfileData?.phone
-  this.place=userProfileData?.place
-  this.qualification=userProfileData?.qualification
-  this.aboutyou=userProfileData?.aboutyou
-  
-  console.log(userProfileData);
-});
 
 
 uploadImage(files: any) {
@@ -98,12 +84,25 @@ submit(){
     this.router.navigate(['/profile'])
   },(err)=>{
     this.toaster.error(err.error.message)
+    this.message=err.error.message
   })
 
   this.ngOnInit()
 
 }
   
+
+getdata(){
+  this.store.pipe(select(userProfile)).subscribe((res)=>{
+  
+   this.userdata=res
+   this.purpose= res.purpose
+   console.log(this.userdata);
+   
+   
+  })
+
+ }
 
 get getname(){
   return this.reativeform.get('name')

@@ -20,7 +20,6 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [
     AppComponent,
 
-
   ],
   imports: [
     FormsModule,

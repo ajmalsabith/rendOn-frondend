@@ -12,8 +12,8 @@
             </select>
             <label for="subscription-details">Subscription Details:</label>
             <div id="subscription-details">
-                <label>1 month : $89</label>
-                <label>1 year : $1019</label>
+                <label *ngIf="selectedSubscription=='monthly'">1 month : $89</label>
+                <label *ngIf="selectedSubscription=='yearly'">1 year : $1019</label>
             </div>
             <button type="submit" (click)="submit()">Proceed to Payment</button>
     </div>

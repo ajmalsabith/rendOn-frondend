@@ -23,17 +23,29 @@
 
                 </ng-template>
                 
-                <div class="card-body ">
+                <div class="card-body " style="font-weight: bolder;background-color: antiquewhite;">
             
                   <h5 class="card-title">{{item.name}}</h5>
                   <p class="card-text">{{item.phone}}</p>
                   <p>{{item.email}}</p>
+                  <p  class="ellipsis">about: {{item.aboutyou}}</p>
+                  <p  class="ellipsis">qualification: {{item.qualification}}</p>
+                  <p >admin_verify: ({{item.admin_verify}})</p>
                   <div class="justify-content-center align-items-center d-flex">
                     <a *ngIf="!item.is_block; else unblock" class="m-3 btn btn-danger" (click)="block(item._id)">Block</a>
                     <ng-template #unblock>
                       <a class="m-3 btn btn-primary" (click)="block(item._id)">Unblock</a>
                     </ng-template>
-                    <a  class="m-3 btn btn-warning">Verify</a>
+
+
+                    <a  *ngIf="item.admin_verify;else noverify" style="font-weight:bold;"  class="m-3 btn btn-success">verified</a>
+
+                    <ng-template #noverify>
+                        <a *ngIf="item.qualification&& item.place && item.aboutyou;else adminverify" style="font-weight:bold;" (click)="veifyadmin(item._id)"   class="m-3 btn btn-primary">Verify</a>
+                    </ng-template>
+                    <ng-template #adminverify>
+                        <a  style="font-weight:bold;"  class="m-3 btn btn-warning">profileNotDone</a>
+                    </ng-template>
                   </div>
                  
                 </div>

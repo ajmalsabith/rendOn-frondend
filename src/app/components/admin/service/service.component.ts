@@ -20,6 +20,15 @@ export class ServiceComponent implements OnInit{
     })
   }
 
+  veifyadmin(id:string){
+    this.adminservice.veifyadmin(id).subscribe((res:any)=>{
+      this.toaster.success(res.message)
+      this.ngOnInit()
+    },(err)=>{
+      this.toaster.error(err.error.message)
+    })
+  }
+
   block(id:string){
 
     

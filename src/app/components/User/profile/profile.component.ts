@@ -30,9 +30,11 @@ export class ProfileComponent implements OnInit{
      
       console.log('haaaaai');
       
-      this.userdata=res.userdata      
+      this.userdata=res.userdata  
+      if (!this.userdata.admin_verify) {
+        this.toaster.warning('please complete your profile')
+      }
       this.sub=res.subdata      
-      console.log(this.userdata);
       this.vehicledata=res.vehicledata
       
     },(err)=>{
@@ -58,6 +60,12 @@ export class ProfileComponent implements OnInit{
     this.addvehcle=false
   }
 
+  notverify(){
+    this.toaster.warning('and waite until admin verify your profile')
+    this.toaster.warning('please complete your profile ')
+
+
+  }
 
   takendsub(){
     Swal.fire({

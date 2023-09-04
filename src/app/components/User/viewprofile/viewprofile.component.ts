@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
 
@@ -10,11 +10,12 @@ import { UserserviceService } from 'src/app/service/userservice/userservice.serv
 })
 export class ViewprofileComponent implements OnInit{
 
-  constructor(private userservice:UserserviceService,private toaster:ToastrService,private route:ActivatedRoute){}
+  constructor(private userservice:UserserviceService,private toaster:ToastrService,private route:ActivatedRoute,private router:Router){}
   userdata:any
   vehicledata:any
   id!:string
   sub!:any
+  current!:any
 
   ngOnInit(): void {
 
@@ -25,7 +26,8 @@ export class ViewprofileComponent implements OnInit{
    });
     this.userservice.getviewprofile(this.id).subscribe((res:any)=>{
           
-      this.userdata=res.userdata      
+      this.userdata=res.userdata   
+      this.current= res.currentuser   
       console.log(this.userdata);
       this.vehicledata=res.vehicledata
       this.sub=res.sub
@@ -43,6 +45,16 @@ export class ViewprofileComponent implements OnInit{
     },(err)=>{
       this.toaster.error(err.error.message)
     })
+   }
+
+   createconnection(id:string){
+    this.userservice.getchat(id).subscribe((res:any)=>{
+      this.router.navigate(['chat'])
+      this.toaster.success(res.message)
+    },(err)=>[
+      this.toaster.error(err.error.message)
+    ])
+
    }
 
 }

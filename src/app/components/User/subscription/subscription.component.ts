@@ -18,6 +18,7 @@ export class SubscriptionComponent implements OnInit {
 
 
   selectedSubscription: string = 'monthly';
+  
   monthly = 89
   yearly = 1019
 

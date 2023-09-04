@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { subscribeOn } from 'rxjs';
 import { UserserviceService } from 'src/app/service/userservice/userservice.service';
@@ -16,7 +16,7 @@ export class SinglePageComponent implements OnInit{
   vehicledata!:any
   userdata!:any
   count!:number
-  constructor(private route:ActivatedRoute,private userservice:UserserviceService,private toaster:ToastrService){}
+  constructor(private route:ActivatedRoute,private userservice:UserserviceService,private toaster:ToastrService,private router:Router){}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -42,6 +42,17 @@ this.count=this.vehicledata.views.length
     },(err)=>{
       this.toaster.error(err.error.message)
     })
+   }
+
+
+   createconnection(id:string){
+    this.userservice.getchat(id).subscribe((res:any)=>{
+      this.router.navigate(['chat'])
+      this.toaster.success(res.message)
+    },(err)=>[
+      this.toaster.error(err.error.message)
+    ])
+
    }
   }
 

@@ -1,0 +1,217 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gutters">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <div class="card m-0">
+
+                    <!-- Row start -->
+                    <div class="row no-gutters">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                            <div class="users-container">
+                                <div class="chat-search-box">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Search">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul *ngIf="chatdata" class="users">
+                                    <div *ngIf="curr.purpose=='service' || curr.purpose=='business';else notserv">
+                                        <li *ngFor="let item of chatdata" (click)="showmessage(item.fromId,item._id)"
+                                            class="person" data-chat="person1">
+                                            <div *ngIf="item.fromId.image;else noimg" class="user">
+                                                <img src="http://localhost:5000/public/{{item.fromId.image}}"
+                                                    alt="Retail Admin">
+                                            </div>
+                                            <ng-template #noimg>
+                                                <div class="user">
+                                                    <img src="assets/149071.png" alt="Retail Admin">
+                                                </div>
+                                            </ng-template>
+                                            <p class="name-time"> {{item.fromId.name}}
+                                                <span class="time">15/02/2019</span>
+                                            </p>
+
+                                            <p class="name-time">
+                                                <span class="name"></span>
+                                            </p>
+
+                                        </li>
+
+                                    </div>
+
+                                    <ng-template #notserv>
+                                        <div>
+                                            <li *ngFor="let item of chatdata" (click)="showmessage(item.toId,item._id)"
+                                                class="person" data-chat="person1">
+                                                <div *ngIf="item.toId.image;else noimg" class="user">
+                                                    <img src="http://localhost:5000/public/{{item.toId.image}}"
+                                                        alt="Retail Admin">
+                                                </div>
+                                                <ng-template #noimg>
+                                                    <div class="user">
+                                                        <img src="assets/149071.png" alt="Retail Admin">
+                                                    </div>
+                                                </ng-template>
+                                                <p class="name-time"> {{item.toId.name}}
+                                                    <span class="time">15/02/2019</span>
+                                                </p>
+
+                                                <p class="name-time">
+                                                    <span class="name"></span>
+                                                </p>
+                                            </li>
+                                        </div>
+
+                                    </ng-template>
+                                </ul>
+                            </div>
+                        </div>
+                        <div *ngIf="messageshow ;else nomessage" class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                            <div *ngIf="curr.purpose === 'service' || curr.purpose === 'business'; else iscus">
+                                <div class="selected-user">
+                                    <img style="width: 60px;height:50px;border-radius:50%;" src="http://localhost:5000/public/{{condata.fromId.image}}" alt="">
+                                  <span style="margin-left:10px;" class="name">{{condata.fromId.name}}</span>
+                                </div>
+                                <div class="chat-container">
+                                  <ul class="chat-box chatContainerScroll">
+                                    <li class="chat-left">
+                                        <div class="chat-avatar">
+                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                                alt="Retail Admin">
+                                            <div class="chat-name">Russell</div>
+                                        </div>
+                                        <div class="chat-text">Hello, I'm Russell.
+                                            <br>How can I help you today?
+                                        </div>
+                                        <div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div>
+                                    </li>
+                                    <li class="chat-right">
+                                        <div class="chat-hour">08:56 <span class="fa fa-check-circle"></span></div>
+                                        <div class="chat-text">Hi, Russell
+                                            <br> I need more information about Developer Plan.
+                                        </div>
+                                        <div class="chat-avatar">
+                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                                alt="Retail Admin">
+                                            <div class="chat-name">Sam</div>
+                                        </div>
+                                    </li>
+                                    
+                                  </ul>
+                                </div>
+                              </div>
+                              
+                              <form [formGroup]="messageform" (ngSubmit)="submit()" class="message-form">
+                                <div class="input-group">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Type your message here..."
+                                    formControlName="message"
+                                  />
+                                  <div class="input-group-append">
+                                    <button
+                                      class="btn btn-light"
+                                      type="submit"
+                                      [disabled]="messageform.invalid"
+                                    >
+                                      <i class="material-icons text-primary">send</i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </form>
+                              
+                              
+                            <ng-template #iscus>
+                                <div >
+                                    <div class="selected-user">
+                                        <img src="http://localhost:5000/public/{{condata.toId.name}}" alt="">
+                                      <span>To: <span class="name">{{condata.toId.name}}</span></span>
+                                    </div>
+                                    <div class="chat-container">
+                                      <ul class="chat-box chatContainerScroll">
+                                        <li class="chat-left">
+                                            <div class="chat-avatar">
+                                                <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                                    alt="Retail Admin">
+                                                <div class="chat-name">Russell</div>
+                                            </div>
+                                            <div class="chat-text">Hello, I'm Russell.
+                                                <br>How can I help you today?
+                                            </div>
+                                            <div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div>
+                                        </li>
+                                        <li class="chat-right">
+                                            <div class="chat-hour">08:56 <span class="fa fa-check-circle"></span></div>
+                                            <div class="chat-text">Hi, Russell
+                                                <br> I need more information about Developer Plan.
+                                            </div>
+                                            <div class="chat-avatar">
+                                                <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                                                    alt="Retail Admin">
+                                                <div class="chat-name">Sam</div>
+                                            </div>
+                                        </li>
+                                        
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  
+                                  <form [formGroup]="messageform" (ngSubmit)="submit()" class="message-form">
+                                    <div class="input-group">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Type your message here..."
+                                        formControlName="message"
+                                      />
+                                      <div class="input-group-append">
+                                        <button
+                                          class="btn btn-light"
+                                          type="submit"
+                                          [disabled]="messageform.invalid"
+                                        >
+                                          <i class="material-icons text-primary">send</i>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </form>
+                                  
+                                  
+                            </ng-template>
+
+                        </div>
+
+                        <ng-template #nomessage>
+                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+
+                                <div class="chat-container" style="background-color: rgb(225, 225, 225);">
+
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <!-- Row end -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Row end -->
+
+    </div>
+    <!-- Content wrapper end -->
+
+</div>

@@ -19,6 +19,7 @@ import {userguardin,userguardout} from 'src/app/guards/user.guard'
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SavedComponent } from './saved/saved.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path:'viewprofile/:id',component:ViewprofileComponent,canActivate:[userguardout]},
   {path:'subscription',component:SubscriptionComponent,canActivate:[userguardout]},
   {path:'single-page/:id',component:SinglePageComponent,canActivate:[userguardout]},
-  {path:'saved',component:SavedComponent,canActivate:[userguardout]}
+  {path:'saved',component:SavedComponent,canActivate:[userguardout]},
+  {path:'chat',component:ChatComponent,canActivate:[userguardout]}
   
 ];  
   

@@ -27,6 +27,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SavedComponent } from './saved/saved.component';
 import { CountPipe } from 'src/app/pipes/count.pipe';
+import { SortPipe } from 'src/app/pipes/sort.pipe';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -56,7 +58,9 @@ import { CountPipe } from 'src/app/pipes/count.pipe';
     SubscriptionComponent,
     SinglePageComponent,
     SavedComponent,
-    CountPipe
+    CountPipe,
+    SortPipe,
+    ChatComponent
     
     
 

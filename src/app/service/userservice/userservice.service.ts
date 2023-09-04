@@ -106,4 +106,21 @@ export class UserserviceService {
   makechnge(id:string){
     return this.http.post(`${this.url}/api/makechange`,{id:id})
   }
+
+  
+  getchat(id:string){
+    return this.http.post(`${this.url}/api/getchat`,{id:id})
+  }
+
+  getchatdata(){
+    return this.http.get(`${this.url}/api/getchatdata`)
+  }
+
+  messagesend(data:any){
+    return this.http.post(`${this.url}/api/sendmessage`,{data:data})
+  }
+
+  getmessages(data:any){
+    return this.http.post(`${this.url}/api/getmessage`,{data:data})
+  }
 }

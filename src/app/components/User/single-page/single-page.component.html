@@ -55,7 +55,7 @@
                     <h4 class="price">Day Rent Amount : <span>${{vehicledata.rentAmount}}</span></h4>
                    <br>
                     <div class="action">
-                        <button class=" btn btn-warning text-white"  type="button">chat with owner</button>
+                        <a  (click)="createconnection(userdata._id)"><button class=" btn btn-warning text-white"  type="button">chat with owner</button></a>
                         <button class=" btn btn-dark" type="button" style="margin-left: 25px;" (click)="saveimge(vehicledata._id)">save</button>
                     </div>
 

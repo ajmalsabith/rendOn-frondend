@@ -36,4 +36,8 @@ export class AdminserviceService {
   vehicleaction(id:string){
     return this.http.post(`${this.url}/api/admin/vehicleactions`,{id:id})
   }
+
+  veifyadmin(id:string){
+    return this.http.post(`${this.url}/api/admin/verification`,{id:id})
+  }
 }

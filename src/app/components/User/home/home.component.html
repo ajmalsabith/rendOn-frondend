@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <app-ads></app-ads>
-<app-genric (serchdata)="serchdata($event)" (filtertype)="filtertype($event)"></app-genric>
+<app-genric (serchdata)="serchdata($event)" (filtertype)="filtertype($event)"  (sortdata)="sortdata($event)"></app-genric>
 
 <div class="container mt-2">
     <h4 class="mt-3 mb-3">New Recommended Vehicles</h4>
     <div class="row" *ngIf="vehicledatass$">
-        <div class="col-md-3 mt-3" *ngFor="let vehicle of vehicledatass$ | search : searchText | filter : filtertval">
+        <div class="col-md-3 mt-3" *ngFor="let vehicle of vehicledatass$ | search : searchText | filter : filtertval | sort : sortval">
 
             <div class="card">
                 <div>

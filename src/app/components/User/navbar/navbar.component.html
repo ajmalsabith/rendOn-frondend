@@ -19,7 +19,7 @@
                 <li class="nav-item"><a class="nav-link text-dark"  [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" [routerLink]="['/businesslist']" routerLinkActive="router-link-active" >Service</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" [routerLink]="['/servicelist']" routerLinkActive="router-link-active"  >Business</a></li>
-                <li class="nav-item "><a class="nav-link text-dark" >Chat</a></li>
+                <li class="nav-item "><a class="nav-link text-dark" [routerLink]="['/chat']" routerLinkActive="router-link-active"  >Chat</a></li>
                 <li class="nav-item "><a class="nav-link text-dark"  [routerLink]="['/profile']" routerLinkActive="router-link-active">Profile</a></li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-lg-6">
             <ul style="display: flex;" class="mt-2 justify-content-end no-bullets">
-                <li class="col-2"  ><a href="">Chat</a></li>
+                <li class="col-2"  ><a  [routerLink]="['/chat']" routerLinkActive="router-link-active" >Chat</a></li>
                 <li class="col-2"><a (click)="goToProfilePage()"  [routerLink]="['/profile']"  routerLinkActive="router-link-active">profile</a></li>
             </ul>
         </div>
