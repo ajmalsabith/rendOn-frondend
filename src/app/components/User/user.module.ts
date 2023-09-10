@@ -26,9 +26,12 @@ import { ViewprofileComponent } from './viewprofile/viewprofile.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SavedComponent } from './saved/saved.component';
-import { CountPipe } from 'src/app/pipes/count.pipe';
 import { SortPipe } from 'src/app/pipes/sort.pipe';
 import { ChatComponent } from './chat/chat.component';
+import { ShortPipe } from 'src/app/pipes/short.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './footer/footer.component';
+import { CountPipe } from 'src/app/pipes/count.pipe';
 
 
 
@@ -58,9 +61,11 @@ import { ChatComponent } from './chat/chat.component';
     SubscriptionComponent,
     SinglePageComponent,
     SavedComponent,
-    CountPipe,
     SortPipe,
-    ChatComponent
+    ChatComponent,
+    ShortPipe,
+    CountPipe,
+    FooterComponent
     
     
 
@@ -70,7 +75,9 @@ import { ChatComponent } from './chat/chat.component';
     ReactiveFormsModule,
     userRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
+
   
   ],
   providers: [],

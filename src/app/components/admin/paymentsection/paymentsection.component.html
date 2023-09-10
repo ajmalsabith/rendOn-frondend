@@ -1,0 +1,39 @@
+<app-adminnav></app-adminnav>
+
+
+<div class="container mt-5">
+    <h1 style="text-align: center; font-weight: bolder; font-family: italic;">subscribers List</h1><hr>
+  <div class="table-responsive">
+    <table class="table">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>usertype</th>
+                    <th>paymentId</th>
+                    <th>paymentType</th>
+                    <th>amount</th>
+                    <th>date</th>
+                    <th>endDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of paydata" >
+                    <td>1</td>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.purpose}}</td>
+                    <td>{{item.paymentId}}</td>
+                    <td>{{item.subscriptionType}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.date | date:'yyyy-MM-dd'}}</td>
+                    <td>{{item.endDate | date:'yyyy-MM-dd'}}</td>
+                </tr>
+               
+            </tbody>
+        </table>
+        
+    </table>
+  </div>
+</div>

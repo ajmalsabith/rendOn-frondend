@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit{
   addvehcle:boolean=false
   editprofile:boolean=false
   datashow:boolean=true 
-
+  concount!:number
 
   constructor(private userservice:UserserviceService,private toaster:ToastrService,private router:Router){}
  
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit{
     this.userservice.getprofile().subscribe((res:any)=>{
      
       console.log('haaaaai');
-      
+      this.concount=res.connection
       this.userdata=res.userdata  
       if (!this.userdata.admin_verify) {
         this.toaster.warning('please complete your profile')

@@ -15,12 +15,16 @@ import { selectvehicles } from 'src/app/states/userStates/user.selectors';
 export class HomeComponent implements OnInit {
 
 
+
+
   vehicledatass$!:any
   searchText = '';
   filtertval=''
   sortval=''
-
   count!:number
+
+
+  p:any
 
   serchdata(Value:string){
     this.searchText=Value
@@ -35,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   constructor(
-    private store:Store<{vehicledata:vehicleModel[]}>
+    private store:Store<{vehicledata:vehicleModel[]}>,private userservicec:UserserviceService,private toastere:ToastrService
    
     ){}
 
@@ -45,24 +49,31 @@ export class HomeComponent implements OnInit {
       
   }
 
-  iconHighlighted = false;
+  saveimge(id:string){
+    this.userservicec.saveimg(id).subscribe((res:any)=>{
+       this.toastere.success(res.message)
+    },(err:any)=>{
+      this.toastere.error(err.error.message)
+    })
+   }
 
-  toggleIconColor(vehicle:vehicleModel) {
 
-    console.log(vehicle);
-    
-    vehicle.iconHighlighted = !vehicle.iconHighlighted;
+   likesend(id:string){
 
-    
-  }
+    this.userservicec.sendlike(id).subscribe((res:any)=>{
+      this.toastere.success(res.message)
+      
+      this.ngOnInit()
+    },(err:any)=>{
+      this.toastere.error(err.error.message)
+    })
 
+   }
   
 
   getdata(){
    this.store.pipe(select(selectvehicles)).subscribe((res)=>{
-   
     this.vehicledatass$=res
-    
    })
 
   }

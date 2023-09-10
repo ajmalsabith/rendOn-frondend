@@ -16,6 +16,7 @@ export class SinglePageComponent implements OnInit{
   vehicledata!:any
   userdata!:any
   count!:number
+  curr:any
   constructor(private route:ActivatedRoute,private userservice:UserserviceService,private toaster:ToastrService,private router:Router){}
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class SinglePageComponent implements OnInit{
    this.userservice.singlevehicle(this.id).subscribe((res:any)=>{
     this.vehicledata=res.data
     this.userdata=res.userdata
+    this.curr= res.currdata
 this.count=this.vehicledata.views.length
 
     

@@ -123,4 +123,8 @@ export class UserserviceService {
   getmessages(data:any){
     return this.http.post(`${this.url}/api/getmessage`,{data:data})
   }
+
+  sendlike(id:string){
+    return this.http.post(`${this.url}/api/sendlike`,{id:id})
+  }
 }

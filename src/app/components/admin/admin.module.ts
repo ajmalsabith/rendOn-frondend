@@ -9,7 +9,9 @@ import { CustomerComponent } from './customer/customer.component';
 import { BusinessComponent } from './business/business.component';
 import { ServiceComponent } from './service/service.component';
 import { AdminnavComponent } from './adminnav/adminnav.component';
-import { VehicleslistComponent } from './vehicleslist/vehicleslist.component'
+import { VehicleslistComponent } from './vehicleslist/vehicleslist.component';
+import { PaymentsectionComponent } from './paymentsection/paymentsection.component'
+import { CountPipe } from 'src/app/pipes/count.pipe';
 
 
 @NgModule({
@@ -20,7 +22,10 @@ import { VehicleslistComponent } from './vehicleslist/vehicleslist.component'
     BusinessComponent,
     ServiceComponent,
     AdminnavComponent,
-    VehicleslistComponent
+    VehicleslistComponent,
+    PaymentsectionComponent,
+    CountPipe
+
 
   ],
   imports: [
@@ -28,8 +33,7 @@ import { VehicleslistComponent } from './vehicleslist/vehicleslist.component'
     ReactiveFormsModule,
     adminRoutingModule,
     HttpClientModule,
-    CommonModule,
-   
+    CommonModule
     
 
   ],

@@ -33,7 +33,7 @@
                             style="font-weight: bold;"
                             class="m-2 d-flex align-items-center"
                           >
-                            <i class="material-icons">thumb_up</i>-{{vehicledata.like}}
+                            <i class="material-icons">thumb_up</i>-{{vehicledata.like | count}}
                           </p>
                         </div>
                         <div *ngIf="userdata.image;else noimage" class="col-6 d-flex justify-content-end">
@@ -55,7 +55,7 @@
                     <h4 class="price">Day Rent Amount : <span>${{vehicledata.rentAmount}}</span></h4>
                    <br>
                     <div class="action">
-                        <a  (click)="createconnection(userdata._id)"><button class=" btn btn-warning text-white"  type="button">chat with owner</button></a>
+                        <a *ngIf="curr.purpose=='customer'" (click)="createconnection(userdata._id)"><button class=" btn btn-warning text-white"  type="button">chat with owner</button></a>
                         <button class=" btn btn-dark" type="button" style="margin-left: 25px;" (click)="saveimge(vehicledata._id)">save</button>
                     </div>
 

@@ -16,9 +16,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProfessionalInterceptor } from './interceptor/interceptor.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { SocketIoModule } from 'ngx-socket-io';
+import { CountPipe } from './pipes/count.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    CountPipe
 
   ],
   imports: [
@@ -32,7 +37,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ToastrModule.forRoot(),
     StoreModule.forRoot({userdata:profileReducer,vehilceldata:vehicleReducer}),
     EffectsModule.forRoot([userEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    SocketIoModule.forRoot({ url: 'http://localhost:5000' }),
 
   ],
   providers: [

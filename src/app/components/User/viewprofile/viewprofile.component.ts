@@ -16,7 +16,7 @@ export class ViewprofileComponent implements OnInit{
   id!:string
   sub!:any
   current!:any
-
+ concount!:any
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
@@ -26,11 +26,13 @@ export class ViewprofileComponent implements OnInit{
    });
     this.userservice.getviewprofile(this.id).subscribe((res:any)=>{
           
-      this.userdata=res.userdata   
+      this.userdata=res.userdata 
+
       this.current= res.currentuser   
       console.log(this.userdata);
       this.vehicledata=res.vehicledata
       this.sub=res.sub
+      this.concount=res.connection
 
       
     },(err)=>{

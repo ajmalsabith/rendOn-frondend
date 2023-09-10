@@ -14,9 +14,9 @@ import { UserserviceService } from 'src/app/service/userservice/userservice.serv
 export class OtpComponent implements OnInit{
 
   constructor(private userservice:UserserviceService,private formbuilder:FormBuilder,private router:Router,private toaster:ToastrService){}
-form!:FormGroup
-message=''
- is_otp!:boolean
+   form!:FormGroup
+   message=''
+   is_otp!:boolean
   
   ngOnInit(): void {
     this.form=this.formbuilder.group({

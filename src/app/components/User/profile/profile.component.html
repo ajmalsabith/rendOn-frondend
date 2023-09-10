@@ -74,9 +74,9 @@
       </div>
 
 
-      <div class="d-flex mt-3 justify-content-center">
-        <h3>connections - {{userdata.connections}}</h3>
-        <h3 style="margin-left:15px;">post - {{userdata.post}}</h3>
+      <div  class="d-flex mt-3 justify-content-center">
+        <h3>connections - {{concount}}</h3>
+        <h3 *ngIf="userdata.purpose!='customer'" style="margin-left:15px;">post - {{userdata.post}}</h3>
       </div>
 
     </div>
@@ -239,7 +239,7 @@
                </div>
                <div class="col-3 ">
                 
-                <p class="mt-2 " style="font-weight: bolder;">like -{{item.like}}</p>
+                <p class="mt-2 " style="font-weight: bolder;">like -{{item.like | count}}</p>
                 <p class="mt3" style="font-weight: bolder;">views -{{item.views | count}}</p>
   
                </div>
@@ -287,3 +287,6 @@
   </div>
 
 </div>
+
+
+<app-footer></app-footer>

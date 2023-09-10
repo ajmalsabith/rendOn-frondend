@@ -7,6 +7,7 @@ import { BusinessComponent } from './business/business.component';
 import { ServiceComponent } from './service/service.component';
 import { VehicleslistComponent } from './vehicleslist/vehicleslist.component';
 import { AdminGuard } from 'src/app/guards/admin.guard';
+import { PaymentsectionComponent } from './paymentsection/paymentsection.component';
 
 const routes: Routes = [
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'customer',component: CustomerComponent,canActivate:[AdminGuard] },
   { path: 'business',component: BusinessComponent,canActivate:[AdminGuard] },
   { path: 'service',component: ServiceComponent ,canActivate:[AdminGuard]},
-  { path: 'vehiclelist',component: VehicleslistComponent,canActivate:[AdminGuard] }
+  { path: 'vehiclelist',component: VehicleslistComponent,canActivate:[AdminGuard] },
+  { path: 'paymentlist',component: PaymentsectionComponent,canActivate:[AdminGuard] }
   
 ];
 

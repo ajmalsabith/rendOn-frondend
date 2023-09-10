@@ -1,0 +1,55 @@
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
+
+.footer-links ul,
+.footer-legal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li,
+.footer-legal ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a,
+.footer-legal ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-disclaimer p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Custom styles for color */
+.footer-primary {
+    background-color: #000000;
+}
+
+.footer-primary a {
+    color: #fff;
+}
+
+.footer-primary a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+  

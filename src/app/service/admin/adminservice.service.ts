@@ -40,4 +40,13 @@ export class AdminserviceService {
   veifyadmin(id:string){
     return this.http.post(`${this.url}/api/admin/verification`,{id:id})
   }
+
+  getpaymentdata(){
+    return this.http.get(`${this.url}/api/admin/paymentdata`)
+  }
+
+
+  getdashboard(){
+    return this.http.get(`${this.url}/api/admin/dashboard`)
+  }
 }

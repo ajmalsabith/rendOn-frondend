@@ -117,7 +117,12 @@
     overflow-y: scroll;
   }
   
-  
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px; 
+}
 .chat-container::-webkit-scrollbar {
     display: none;
 }
@@ -160,6 +165,63 @@
     top: 0;
     right: 0;
 }
+
+
+
+
+
+
+
+/* CSS Styles */
+.chat-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .chat-list li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .chat-list .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .chat-info {
+    flex-grow: 1;
+  }
+  
+  .name-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  
+  .message {
+    margin-top: 5px;
+    color: #555;
+  }
+  
+
+
+
+
+
+
+
+
+
 
 .users .person .user .status.online {
     background: #9ec94a;
@@ -220,6 +282,11 @@
     -moz-border-radius: 0 3px 0 0;
     border-radius: 0 3px 0 0;
 }
+
+
+
+
+
 
 .selected-user span {
     line-height: 100%;
