@@ -20,10 +20,10 @@
                 </ng-template>
               </li>
             <ng-template #notsub>
-              <li *ngIf="userdata.purpose=='business';else isservice"><a class="dropdown-item" (click)="notakensub()" >ADD VEHICLE
+              <li *ngIf="userdata.purpose=='business'"><a class="dropdown-item" (click)="notakensub()" >ADD VEHICLE
                 </a></li>
             </ng-template>  
-            <ng-template #isservice>
+            <!-- <ng-template #isservice>
               <li *ngIf="userdata.purpose=='service'">
                 <a *ngIf="userdata.admin_verify;else notadm" class="dropdown-item" >ADD POST
               </a>
@@ -34,7 +34,7 @@
               </ng-template>
   
             </li>
-            </ng-template>  
+            </ng-template>   -->
             <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
             <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
               <a *ngIf="userdata.admin_verify;else notv" class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>
@@ -168,10 +168,10 @@
               </ng-template>
             </li>
           <ng-template #notsub>
-            <li *ngIf="userdata.purpose=='business';else isservice"><a class="dropdown-item" (click)="notakensub()" >ADD VEHICLE
+            <li *ngIf="userdata.purpose=='business'"><a class="dropdown-item" (click)="notakensub()" >ADD VEHICLE
               </a></li>
           </ng-template>  
-          <ng-template #isservice>
+          <!-- <ng-template #isservice>
             <li *ngIf="userdata.purpose=='service'">
               <a *ngIf="userdata.admin_verify;else notadm" class="dropdown-item" >ADD POST
             </a>
@@ -182,7 +182,7 @@
             </ng-template>
 
           </li>
-          </ng-template>  
+          </ng-template>   -->
           <li><a class="dropdown-item" (click)="showEditProfile()">EDIT PROFILE</a></li>
           <li *ngIf="(userdata.purpose === 'service' || userdata.purpose === 'business') && !sub; else notis">
             <a *ngIf="userdata.admin_verify;else notv" class="dropdown-item" [routerLink]="['/subscription']" routerLinkActive="router-link-active">GET SUBSCRIPTION</a>

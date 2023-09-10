@@ -18,19 +18,15 @@
                             <div class="users-container">
                                 <div class="chat-search-box">
                                     <div class="input-group">
-                                        <input class="form-control" placeholder="Search">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-info">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
+                                        <input class="form-control"  [(ngModel)]="searchText"  placeholder="Search">
+                                       
                                     </div>
                                 </div>
                                 <ul *ngIf="chatdata" class="users">
                                     <div *ngIf="curr.purpose=='service' || curr.purpose=='business';else notserv">
                                         <div *ngIf="curr.purpose=='service' || curr.purpose=='business';else notserv">
                                             <ul class="chat-list">
-                                                <li *ngFor="let item of chatdata" (click)="showmessage(item.fromId, item._id)" class="person" data-chat="person1">
+                                                <li *ngFor="let item of chatdata| chatserch:searchText" (click)="showmessage(item.fromId, item._id)" class="person" data-chat="person1">
                                                     <div *ngIf="item.fromId.image;else noimg" class="user">
                                                         <img src="http://localhost:5000/public/{{item.fromId.image}}"
                                                             alt="Retail Admin">
@@ -60,7 +56,7 @@
                                     <ng-template #notserv>
                                         <div>
                                             <ul class="chat-list">
-                                              <li *ngFor="let item of chatdata" (click)="showmessage(item.toId, item._id)" class="person" data-chat="person1">
+                                              <li *ngFor="let item of chatdata| chatserch:searchText" (click)="showmessage(item.toId, item._id)" class="person" data-chat="person1">
                                                 <div class="user">
                                                   <img *ngIf="item.toId.image" src="http://localhost:5000/public/{{item.toId.image}}" alt="Retail Admin">
                                                   <img *ngIf="!item.toId.image" src="assets/149071.png" alt="Retail Admin">

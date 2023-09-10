@@ -29,7 +29,7 @@
 
       <div class="d-flex mt-3 justify-content-center">
         <h3>connections - {{concount}}</h3>
-        <h3 style="margin-left:15px;">post - {{userdata.post}}</h3><br>
+        <h3 *ngIf="userdata.purpose!='service'" style="margin-left:15px;">post - {{userdata.post}}</h3><br>
 
       </div>
 

@@ -32,6 +32,7 @@ import { ShortPipe } from 'src/app/pipes/short.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
 import { CountPipe } from 'src/app/pipes/count.pipe';
+import { ChatserchPipe } from 'src/app/pipes/chatserch.pipe';
 
 
 
@@ -64,8 +65,11 @@ import { CountPipe } from 'src/app/pipes/count.pipe';
     SortPipe,
     ChatComponent,
     ShortPipe,
+    FooterComponent,
     CountPipe,
-    FooterComponent
+    ChatserchPipe
+
+
     
     
 

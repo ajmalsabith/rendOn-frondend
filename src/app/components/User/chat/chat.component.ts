@@ -18,6 +18,8 @@ export class ChatComponent implements OnInit{
   mid!:string
   allmessage!:any
   condata!:any
+
+  searchText=''
   constructor(private userservice:UserserviceService,private toaster:ToastrService,private socket:Socket){}
   @ViewChild('messageForm', { static: false }) messageForm!: NgForm;
 

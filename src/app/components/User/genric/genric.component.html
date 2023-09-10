@@ -6,7 +6,7 @@
         </div>
         
         <div class="col-7 d-flex justify-content-end" >
-            <div class="col-2 m-2 stylebt d-flex align-items-center justify-content-center">
+            <div *ngIf="notshow" class="col-2 m-2 stylebt d-flex align-items-center justify-content-center">
                 <div class="">
                     <a class="nav-link tect dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         FILTER
@@ -19,7 +19,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-2 m-2 stylebt  d-flex align-items-center justify-content-center">
+            <div *ngIf="notshow"  class="col-2 m-2 stylebt  d-flex align-items-center justify-content-center">
                 <div class="">
                     <a class="nav-link  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         SORT

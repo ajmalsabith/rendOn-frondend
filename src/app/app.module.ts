@@ -17,13 +17,12 @@ import { ProfessionalInterceptor } from './interceptor/interceptor.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SocketIoModule } from 'ngx-socket-io';
-import { CountPipe } from './pipes/count.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountPipe
+
 
   ],
   imports: [
