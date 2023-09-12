@@ -3,7 +3,6 @@
 <div class="container">
     <h5 class="section-title h1 mt-4 justify-content-center d-flex">business List</h5><hr>
     <div class="row" *ngIf="datas">
-        <!-- Team member -->
         <div class="col-lg-3" *ngFor="let item of datas | search : searchText" >
             <div class="image-flip">
                 <div class="mainflip flip-0">
@@ -11,7 +10,7 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <p *ngIf="item.image ; else noimage"><img class="img-fluid"
-                                        src="http://localhost:5000/public/{{item.image}}"
+                                        src="https://renton.cloud/public/{{item.image}}"
                                         alt="card image"></p>
                                         <ng-template #noimage>
                                             <p><img class="img-fluid"

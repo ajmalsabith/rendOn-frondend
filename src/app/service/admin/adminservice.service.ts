@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AdminserviceService {
 
-  url='http://localhost:5000'
+  url='https://renton.cloud'
   constructor(private http:HttpClient) { }
 
 

@@ -11,7 +11,6 @@ import { ServiceComponent } from './service/service.component';
 import { AdminnavComponent } from './adminnav/adminnav.component';
 import { VehicleslistComponent } from './vehicleslist/vehicleslist.component';
 import { PaymentsectionComponent } from './paymentsection/paymentsection.component'
-import { CountPipe } from 'src/app/pipes/count.pipe';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { CountPipe } from 'src/app/pipes/count.pipe';
     AdminnavComponent,
     VehicleslistComponent,
     PaymentsectionComponent,
-    CountPipe
 
 
   ],

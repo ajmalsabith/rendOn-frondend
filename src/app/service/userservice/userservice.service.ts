@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class UserserviceService {
 
   constructor( private http:HttpClient) { }
-  url='http://localhost:5000'
+  url='https://renton.cloud'
+  // url='http://localhost:5000'
 
 
 
@@ -42,7 +43,7 @@ export class UserserviceService {
 
 
   loadeditprofile(){
-    return this.http.get(`${this.url}/api/editprofile`,)
+    return this.http.get(`${this.url}/api/editprofile`)
   }
 
   edituserdata(data:any){

@@ -1,5 +1,142 @@
 <app-navbar></app-navbar>
 
+
+<style>
+  .chat-search-box {
+    -webkit-border-radius: 3px 0 0 0;
+    -moz-border-radius: 3px 0 0 0;
+    border-radius: 3px 0 0 0;
+    padding: .75rem 1rem;
+}
+
+.chat-search-box .input-group .form-control {
+    border-radius: 2px 0 0 2px;
+    border-right: 0;
+}
+
+.chat-search-box .input-group .form-control:focus {
+    border-right: 0;
+}
+
+.chat-search-box .input-group .input-group-btn .btn {
+    -webkit-border-radius: 0 2px 2px 0;
+    -moz-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+    margin: 0;
+}
+
+.chat-search-box .input-group .input-group-btn .btn i {
+    font-size: 1.2rem;
+    line-height: 100%;
+    vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+    .chat-search-box {
+        display: none;
+    }
+}
+
+.users-container {
+    position: relative;
+    padding: 1rem 0;
+    border-right: 1px solid #e6ecf3;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.users {
+    padding: 0;
+}
+
+.users .person {
+    position: relative;
+    width: 100%;
+    padding: 10px 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.users .person:hover {
+    background-color: #ffffff;
+  
+}
+.chat-container {
+    position: relative; 
+    height: calc(100vh - 60px); 
+    overflow-y: auto; 
+}
+.users .person.active-user {
+    background-color: #ffffff;
+  
+}
+
+.chat-container {
+    height: 600px; 
+    overflow-y: scroll;
+  }
+  
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px; 
+}
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+  .message-form {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff; 
+    padding: 10px; 
+    z-index: 1; 
+  }
+
+.users .person:last-child {
+    border-bottom: 0;
+}
+
+.users .person .user {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+.users .person .user img {
+    width: 48px;
+    height: 48px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.users .person .user .status {
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background: #e6ecf3;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.chat-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .chat-list li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+</style>
 <div class="container">
 
     <!-- Content wrapper start -->
@@ -28,7 +165,7 @@
                                             <ul class="chat-list">
                                                 <li *ngFor="let item of chatdata| chatserch:searchText" (click)="showmessage(item.fromId, item._id)" class="person" data-chat="person1">
                                                     <div *ngIf="item.fromId.image;else noimg" class="user">
-                                                        <img src="http://localhost:5000/public/{{item.fromId.image}}"
+                                                        <img src="https://renton.cloud/public/{{item.fromId.image}}"
                                                             alt="Retail Admin">
                                                     </div>
                                                     <ng-template #noimg>
@@ -58,7 +195,7 @@
                                             <ul class="chat-list">
                                               <li *ngFor="let item of chatdata| chatserch:searchText" (click)="showmessage(item.toId, item._id)" class="person" data-chat="person1">
                                                 <div class="user">
-                                                  <img *ngIf="item.toId.image" src="http://localhost:5000/public/{{item.toId.image}}" alt="Retail Admin">
+                                                  <img *ngIf="item.toId.image" src="https://renton.cloud/public/{{item.toId.image}}" alt="Retail Admin">
                                                   <img *ngIf="!item.toId.image" src="assets/149071.png" alt="Retail Admin">
                                                 </div>
                                                 <div class="chat-info">
@@ -84,7 +221,7 @@
                         <div *ngIf="messageshow ;else nomessage" class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
                             <div *ngIf="curr.purpose === 'service' || curr.purpose === 'business'; else iscus">
                                 <div *ngIf="condata.fromId.image" class="selected-user">
-                                    <img style="width: 60px;height:50px;border-radius:50%;" src="http://localhost:5000/public/{{condata.fromId.image}}" alt="">
+                                    <img style="width: 60px;height:50px;border-radius:50%;" src="https://renton.cloud/public/{{condata.fromId.image}}" alt="">
                                   <span style="margin-left:10px;" class="name">{{condata.fromId.name}}</span>
                                 </div>
                                 <ng-template #noimg>
@@ -143,7 +280,7 @@
                             <ng-template #iscus>
                                 <div >
                                     <div *ngIf="condata.toId.image;else noimg" class="selected-user">
-                                        <img style="width: 60px;height:50px;border-radius:50%;" src="http://localhost:5000/public/{{condata.toId.image}}" alt="">
+                                        <img style="width: 60px;height:50px;border-radius:50%;" src="https://renton.cloud/public/{{condata.toId.image}}" alt="">
                                       <span style="margin-left:10px;" class="name">{{condata.toId.name}}</span>
                                     </div>
                                     <ng-template #noimg>

@@ -20,14 +20,14 @@
                 <tr  >
                     <td>{{item.ownername}}</td>
                     <td>
-                        <img style="width:150px; height: 100px;" src="http://localhost:5000/public/{{item.proof}}" alt="">
+                        <img style="width:150px; height: 100px;" src="https://renton.cloud/public/{{item.proof}}" alt="">
                     </td>
                     <td>
-                        <img style="width:150px; height: 100px;" src="http://localhost:5000/public/{{item.image}}" alt="">
+                        <img style="width:150px; height: 100px;" src="https://renton.cloud/public/{{item.image}}" alt="">
                     </td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.rentAmount }}</td>
-                    <td>{{ item.like | count }}</td>
+                    <td>{{ item.like.length  }}</td>
                     <td class="bg-warning ">
                         <p class="m-3" style="color: black;font-weight: bolder;" >{{item.status}}</p>
                     </td>

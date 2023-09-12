@@ -37,7 +37,7 @@ import { SocketIoModule } from 'ngx-socket-io';
     StoreModule.forRoot({userdata:profileReducer,vehilceldata:vehicleReducer}),
     EffectsModule.forRoot([userEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    SocketIoModule.forRoot({ url: 'http://localhost:5000' }),
+    SocketIoModule.forRoot({ url:'https://renton.cloud' }),
 
   ],
   providers: [

@@ -7,7 +7,7 @@
     <div class="col-md-4">
      
       <div *ngIf="userdata.image; else noImage" class="mt-5  d-flex align-items-center justify-content-center">
-        <img style="height: 300px;width: 300px;border-radius:50%;" src="http://localhost:5000/public/{{userdata.image}}" alt="...">
+        <img style="height: 300px;width: 300px;border-radius:50%;" src="https://renton.cloud/public/{{userdata.image}}" alt="...">
       </div>
       <ng-template #noImage>
         <div class="mt-5 d-flex align-items-center justify-content-center">
@@ -107,7 +107,7 @@
         <div class="row g-0">
           <div class="col-md-4 imgfit">
             <img style="height: 200px; width: 200px; border: 2px solid rgb(60, 51, 51);"
-              src="http://localhost:5000/public/{{item.image}}"
+              src="https://renton.cloud/public/{{item.image}}"
               class="rounded-start" alt="...">
           </div>
   
