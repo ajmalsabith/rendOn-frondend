@@ -3,8 +3,8 @@
     <h4>edit prfile</h4>
     <div class="row" style="border: 2px solid black; border-radius:30px;">
         <div class="col-md-6 mb-3 mt-2">
-            <div *ngIf="userdata.image ; else noimg">
-             <img style="width: 200px;height:150px;border-radius:50%;" src="https://renton.cloud/public/{{userdata.image}}" alt="...">
+            <div *ngIf="userdata.image; else noimg">
+             <img style="width: 200px;height:150px;border-radius:50%;" src="https://renton.cloud/public/{{userdata.image}}">
             </div>
             <ng-template #noimg>
             <div>
@@ -27,7 +27,8 @@
             <span style="color: red;" *ngIf="getplace && getplace.invalid && getplace.touched">please enter your place</span><br>
             <input type="text" class="form-control mt-2" formControlName="aboutyou" value="{{userdata.aboutyou}}" id="vehicleName" >
             <span style="color: red;" *ngIf="getaboutyou && getaboutyou.invalid && getaboutyou.touched">please enter about you</span><br>
-            <input *ngIf="userdata.purpose=='service'" type="text" class="form-control mt-2" formControlName="qualification" placeholder="enter qualification" id="vehicleName"  >
+            <input type="text" class="form-control mt-2" formControlName="qualification" value="{{userdata.qualification}}" id="vehicleName"  >
+            <span style="color: red;" *ngIf="getqualification && getqualification.invalid && getqualification.touched">please enter your qualification</span><br>
             <input type="number" class="form-control mt-2" formControlName="phone"  value="{{userdata.phone}}"  id="vehicleAmount">
             <span style="color: red;" *ngIf="getphone && getphone.invalid && getphone.touched">please enter your phone</span><br>
         </div>
@@ -35,4 +36,5 @@
         <button style="border-radius: 30px;" type="submit" [disabled]="reativeform.invalid"  class="btn btn-primary">Submit</button>
 
     </div>
+    
 </form>

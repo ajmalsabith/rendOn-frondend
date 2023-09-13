@@ -43,7 +43,7 @@ export class UserserviceService {
 
 
   loadeditprofile(){
-    return this.http.get(`${this.url}/api/editprofile`)
+    return this.http.get(`${this.url}/api/editprofileget`)
   }
 
   edituserdata(data:any){

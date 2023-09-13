@@ -39,13 +39,12 @@ export class EditprofileComponent implements OnInit{
     this.getdata()
     this.store.dispatch(editprofileload())
 
-    
       this.reativeform= new FormGroup({
         name:new FormControl('',Validators.required),
         phone:new FormControl('',[Validators.required, Validators.pattern(/^\d{10}$/)]),
         image:new FormControl('',[Validators.required]),
         place:new FormControl('',[Validators.required]),
-        qualification:new FormControl(''),
+        qualification:new FormControl('',[Validators.required]),
         aboutyou:new FormControl('',[Validators.required])
       
       })
@@ -97,6 +96,8 @@ getdata(){
   
    this.userdata=res
    this.purpose= res.purpose
+   console.log(this.purpose+'purpose');
+   
    console.log(this.userdata);
    
    
@@ -129,6 +130,7 @@ get getplace(){
 get getaboutyou(){
   return this.reativeform.get('aboutyou')
 }
+
 
 
 }
