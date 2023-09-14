@@ -47,7 +47,7 @@ export class UserserviceService {
   }
 
   edituserdata(data:any){
-    return this.http.post(`${this.url}/api/editprofile`,data)
+    return this.http.put(`${this.url}/api/editprofile`,data)
   }
   logoutpost(){
     return this.http.post(`${this.url}/api/logout`,{})

@@ -5,6 +5,7 @@
         text-overflow: ellipsis;
         max-width: 150px; 
     }
+    
     .highlight {
         color: red; /* Set the desired highlighted color */
       }
