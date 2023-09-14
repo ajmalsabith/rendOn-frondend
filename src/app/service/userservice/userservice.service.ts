@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import {environment} from 'src/environment/environment'
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviceService {
 
   constructor( private http:HttpClient) { }
-  url='https://renton.cloud'
+  url=environment.url
   // url='http://localhost:5000'
 
 
@@ -47,7 +47,7 @@ export class UserserviceService {
   }
 
   edituserdata(data:any){
-    return this.http.put(`${this.url}/api/editprofile`,data)
+    return this.http.post(`${this.url}/api/editprofile`,data)
   }
   logoutpost(){
     return this.http.post(`${this.url}/api/logout`,{})

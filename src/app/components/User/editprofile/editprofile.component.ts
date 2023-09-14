@@ -42,6 +42,7 @@ export class EditprofileComponent implements OnInit{
       this.reativeform= new FormGroup({
         name:new FormControl('',Validators.required),
         phone:new FormControl('',[Validators.required, Validators.pattern(/^\d{10}$/)]),
+        image:new FormControl('',[Validators.required]),
         place:new FormControl('',[Validators.required]),
         qualification:new FormControl('',[Validators.required]),
         aboutyou:new FormControl('',[Validators.required])
@@ -72,6 +73,9 @@ submit(){
   formdata.append('place',user.place)
   formdata.append('qualification',user.qualification)
   formdata.append('aboutyou',user.aboutyou)
+  formdata.append('image',this.selectedImage1,this.selectedImage1.name)
+  console.log(formdata+'fomrdata');
+  
   this.userservice.edituserdata(formdata).subscribe((res:any)=>{
     
     this.toaster.success(res.message)
@@ -79,7 +83,7 @@ submit(){
     this.goToProfilePage()
     this.router.navigate(['/profile'])
   },(err)=>{
-    this.toaster.error(err.error)
+    this.toaster.error(err.error.message)
     this.message=err.error.message
   })
 
@@ -92,10 +96,6 @@ getdata(){
   this.store.pipe(select(userProfile)).subscribe((res)=>{
   
    this.userdata=res
-   
-   console.log(this.userdata);
-   
-   
   })
 
  }

@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {environment} from 'src/environment/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminserviceService {
 
-  url='https://renton.cloud'
+  url=environment.url
   // url='http://localhost:5000'
 
   constructor(private http:HttpClient) { }

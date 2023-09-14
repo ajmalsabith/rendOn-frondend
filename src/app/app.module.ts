@@ -17,6 +17,7 @@ import { ProfessionalInterceptor } from './interceptor/interceptor.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SocketIoModule } from 'ngx-socket-io';
+import {environment} from 'src/environment/environment'
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { SocketIoModule } from 'ngx-socket-io';
     StoreModule.forRoot({userdata:profileReducer,vehilceldata:vehicleReducer}),
     EffectsModule.forRoot([userEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    SocketIoModule.forRoot({url:'https://renton.cloud'  }),
+    SocketIoModule.forRoot({url:environment.url }),
 
   ],
   providers: [
