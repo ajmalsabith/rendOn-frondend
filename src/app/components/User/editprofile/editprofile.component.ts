@@ -10,6 +10,8 @@ import { editprofileload } from 'src/app/states/userStates/user.action';
 import {  userProfile } from 'src/app/states/userStates/user.selectors';
 
 
+
+
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -34,6 +36,8 @@ export class EditprofileComponent implements OnInit{
     private userservice:UserserviceService,
     private toaster:ToastrService
   ){}
+
+   
 
   ngOnInit(): void {
     this.getdata()

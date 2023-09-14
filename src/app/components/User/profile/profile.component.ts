@@ -58,6 +58,7 @@ export class ProfileComponent implements OnInit{
     this.datashow=Value
     this.editprofile=false
     this.addvehcle=false
+    this.ngOnInit()
   }
 
   notverify(){
