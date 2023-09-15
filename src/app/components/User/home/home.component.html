@@ -35,7 +35,7 @@
                         style="font-weight: bold;"
                         class="m-2 d-flex align-items-center"
                       >
-                        <i  class="material-icons">thumb_up</i>-{{ vehicle.like|count }}
+                        <i  class="material-icons">thumb_up</i>{{ vehicle.like|count }}
                       </p>
                       <p
                       *ngIf="!vehicle.like"
