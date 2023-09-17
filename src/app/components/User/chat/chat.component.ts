@@ -39,7 +39,6 @@ export class ChatComponent implements OnInit{
       this.allmessage.push(newMessage)
 
       
-      console.log('anything goes here');
     });
   
     
